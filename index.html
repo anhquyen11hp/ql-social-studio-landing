@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>QL Social Studio - Tự Động Hóa Video AI Affiliate 100% Trên PC</title>
 
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2009704089749925');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2009704089749925&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -942,6 +960,40 @@
             const cleanPhone = phone.replace(/[^0-9]/g, '');
             const memo = `TOOL ${cleanPhone}`;
 
+            // 1. Meta Pixel Conversion Tracking (Purchase & Lead)
+            if (typeof fbq === 'function') {
+                fbq('track', 'Purchase', {
+                    value: 500000,
+                    currency: 'VND',
+                    content_name: 'Tool QL Social Studio PC'
+                });
+                fbq('track', 'Lead');
+            }
+
+            // 2. Send Real-time Order Notification to Telegram Bot
+            const tgToken = '8948011048:AAGr78HbdYUC6UlH2tPGAMo0XUEYlxLx24E';
+            const tgChatId = '7516460528';
+            const timeNow = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
+
+            const textMsg = `🔥 <b>CÓ ĐƠN HÀNG MỚI ĐĂNG KÝ TOOL!</b>\n\n` +
+                `👤 <b>Họ tên:</b> ${name}\n` +
+                `📞 <b>Số điện thoại (Zalo):</b> ${phone}\n` +
+                `📧 <b>Email nhận link:</b> ${email}\n` +
+                `💰 <b>Gói:</b> Bản Quyền Vĩnh Viễn (500.000 VNĐ)\n` +
+                `📝 <b>Cú pháp CK:</b> <code>${memo}</code>\n` +
+                `⏰ <b>Thời gian:</b> ${timeNow}\n\n` +
+                `⚡ <i>Khách vừa mở mã VietQR để thanh toán. Hãy kiểm tra biến động số dư và nhắn Zalo hỗ trợ khách kích hoạt nhé!</i>`;
+
+            fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: tgChatId,
+                    text: textMsg,
+                    parse_mode: 'HTML'
+                })
+            }).catch(err => console.log('Telegram Alert Error:', err));
+
             // Generate VietQR Image URL using VietQR API
             // Bank: VietinBank (ICB), Account: 101869296314, Account Name: HOANG THE QUYEN, Amount: 500000
             const qrUrl = `https://img.vietqr.io/image/ICB-101869296314-compact2.png?amount=500000&addInfo=${encodeURIComponent(memo)}&accountName=HOANG%20THE%20QUYEN`;
@@ -958,8 +1010,17 @@
             modal.classList.remove('hidden');
             modal.classList.add('flex');
 
-            showToast("Đã tạo mã VietQR thanh toán tự động!");
+            showToast("Đã tạo mã VietQR & gửi thông tin đơn hàng!");
         }
+
+        // Track InitiateCheckout on all Order Buttons
+        document.querySelectorAll('a[href="#order-form"]').forEach(el => {
+            el.addEventListener('click', () => {
+                if (typeof fbq === 'function') {
+                    fbq('track', 'InitiateCheckout');
+                }
+            });
+        });
 
         function closePaymentModal() {
             const modal = document.getElementById('payment-modal');
