@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile View Simulator - QL Social Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+        }
+        .device-shadow {
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(34, 197, 94, 0.15);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start bg-slate-950 text-slate-100 p-2 sm:p-4 selection:bg-emerald-500 selection:text-slate-950">
+
+    <!-- Top Control Bar -->
+    <header class="w-full max-w-5xl bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-2xl p-3 sm:p-4 mb-4 flex flex-wrap items-center justify-between gap-3 shadow-xl">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <div>
+                <h1 class="text-sm sm:text-base font-extrabold text-white leading-tight">Trình Xem Trước Giao Diện Mobile</h1>
+                <span class="text-[11px] text-emerald-400 font-semibold">Tỉ lệ chuẩn 100% điện thoại thật</span>
+            </div>
+        </div>
+
+        <!-- Device Selector Buttons -->
+        <div class="flex items-center gap-1.5 sm:gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800 text-xs">
+            <button onclick="setDevice('iphone-15', 393, 852, 'iPhone 15 Pro (393 x 852)')" id="btn-iphone-15" class="device-btn active px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-bold transition-all flex items-center gap-1.5">
+                <i class="fa-brands fa-apple"></i> iPhone 15 Pro
+            </button>
+            <button onclick="setDevice('galaxy-s24', 412, 915, 'Samsung Galaxy S24 (412 x 915)')" id="btn-galaxy-s24" class="device-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white font-bold transition-all flex items-center gap-1.5">
+                <i class="fa-brands fa-android"></i> Galaxy S24
+            </button>
+            <button onclick="setDevice('iphone-se', 375, 667, 'iPhone SE / Mini (375 x 667)')" id="btn-iphone-se" class="device-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white font-bold transition-all flex items-center gap-1.5 hidden sm:flex">
+                <i class="fa-solid fa-mobile"></i> iPhone SE
+            </button>
+            <a href="/preview.html" target="_blank" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white font-bold transition-all flex items-center gap-1.5 border border-slate-800">
+                <i class="fa-solid fa-desktop"></i> Bản Full PC
+            </a>
+        </div>
+
+        <div class="text-[11px] text-slate-400 font-mono hidden md:block">
+            Kích thước: <span id="dim-label" class="text-emerald-400 font-bold">393 x 852 px</span>
+        </div>
+    </header>
+
+    <!-- Phone Mockup Container -->
+    <main class="flex items-center justify-center w-full py-2">
+        <div id="phone-frame" class="relative bg-slate-900 border-[10px] border-slate-800 rounded-[50px] overflow-hidden device-shadow transition-all duration-300 ring-1 ring-white/10" style="width: 393px; height: 840px;">
+            
+            <!-- Dynamic Island / Notch Mockup -->
+            <div class="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-6 bg-slate-950 rounded-full z-40 flex items-center justify-between px-2.5 border border-slate-800/60 pointer-events-none">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-700"></span>
+                <span class="w-2 h-2 rounded-full bg-slate-800"></span>
+            </div>
+
+            <!-- Home Bar Indicator -->
+            <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-500/40 rounded-full z-40 pointer-events-none"></div>
+
+            <!-- Embedded Live Page Iframe -->
+            <iframe id="preview-iframe" src="/preview.html" class="w-full h-full border-none bg-slate-950" title="Giao diện điện thoại"></iframe>
+        </div>
+    </main>
+
+    <footer class="mt-4 text-center text-xs text-slate-500">
+        💡 Bạn có thể cuộn, chạm, điền thử form đặt hàng và trải nghiệm trực tiếp giao diện mobile bên trong màn hình mô phỏng.
+    </footer>
+
+    <script>
+        function setDevice(type, width, height, name) {
+            const frame = document.getElementById('phone-frame');
+            frame.style.width = width + 'px';
+            frame.style.height = (height > 850 ? 840 : height) + 'px';
+
+            document.getElementById('dim-label').textContent = width + ' x ' + height + ' px';
+
+            document.querySelectorAll('.device-btn').forEach(btn => {
+                btn.classList.remove('bg-emerald-500', 'text-slate-950');
+                btn.classList.add('text-slate-400');
+            });
+
+            const activeBtn = document.getElementById('btn-' + type);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-emerald-500', 'text-slate-950');
+                activeBtn.classList.remove('text-slate-400');
+            }
+        }
+    </script>
+</body>
+</html>
