@@ -1040,8 +1040,30 @@
                     </div>
                 </div>
 
+                <!-- Anti-Fraud Policy & Payout Terms Box -->
+                <div class="mt-6 pt-5 border-t border-slate-800/80 text-left bg-slate-950/80 p-4 sm:p-5 rounded-2xl border border-slate-800 space-y-2.5">
+                    <div class="flex items-center gap-2 text-amber-400 font-bold text-xs sm:text-sm">
+                        <i class="fa-solid fa-shield-halved text-sm"></i>
+                        <span>Quy Định Đối Soát & Chính Sách Chống Gian Lận (Anti-Fraud Policy):</span>
+                    </div>
+                    <ul class="text-xs text-slate-400 space-y-1.5 leading-relaxed">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-ban text-red-400 mt-1 shrink-0 text-[10px]"></i>
+                            <span><strong>Nghiêm cấm tự giới thiệu (Self-referral):</strong> Không áp dụng hoa hồng cho trường hợp tự tạo link để tự mua hàng. Hệ thống tự động quét trùng khớp SĐT, STK thanh toán, họ tên và thiết bị để hủy hoa hồng đơn tự mua.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-coins text-amber-400 mt-1 shrink-0 text-[10px]"></i>
+                            <span><strong>Điều kiện thanh toán hoa hồng:</strong> Hoa hồng được đối soát và chuyển khoản tự động vào Thứ 2 hàng tuần khi phát sinh từ <strong>tối thiểu 2 khách hàng thực tế khác nhau</strong> (tối thiểu 400.000đ).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-bolt text-emerald-400 mt-1 shrink-0 text-[10px]"></i>
+                            <span><strong>Thanh toán minh bạch:</strong> Chuyển khoản tức thì qua Napas247 vào đúng STK và Họ tên đối tác đã đăng ký.</span>
+                        </li>
+                    </ul>
+                </div>
+
                 <!-- Action Button Join Affiliate Zalo Group -->
-                <div class="mt-6 pt-5 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                <div class="mt-4 pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
                     <div class="text-xs text-slate-400">
                         <strong class="text-slate-200">Cần kho video raw & kịch bản mẫu?</strong> Tham gia ngay nhóm hỗ trợ Affiliate:
                     </div>
@@ -1234,11 +1256,17 @@
 
             const inputVal = refInput ? refInput.value.trim().toUpperCase() : '';
             const savedAff = localStorage.getItem('ql_aff_code') || '';
+            const myPartnerCode = localStorage.getItem('ql_my_partner_code') || '';
+            const myPartnerStk = localStorage.getItem('ql_my_partner_stk') || '';
+
+            // Check if user is self-referring
+            const isSelfRef = (myPartnerCode && (inputVal === myPartnerCode || savedAff === myPartnerCode)) ||
+                              (myPartnerStk && ((inputVal && inputVal.includes(myPartnerStk)) || (savedAff && savedAff.includes(myPartnerStk))));
 
             // 1. Check if user entered a VIP License Key (Discount 100k -> 999.000 VNĐ)
             const isLicenseKey = inputVal.length >= 3 && !inputVal.startsWith('STK_');
             // 2. Check if user came from Bank Affiliate Link (Keep 1.099.000 VNĐ)
-            const isBankAff = inputVal.startsWith('STK_') || (!inputVal && savedAff);
+            const isBankAff = !isSelfRef && (inputVal.startsWith('STK_') || (!inputVal && savedAff));
 
             if (isLicenseKey) {
                 // USER LICENSE KEY: DISCOUNT 100K (999.000 VNĐ)
@@ -1271,9 +1299,16 @@
                     packageBox.classList.remove('bg-amber-500/10', 'border-amber-500/40');
                 }
             } else {
-                // DIRECT BUY (1.099.000 VNĐ)
+                // DIRECT BUY OR SELF-REFERRAL (1.099.000 VNĐ)
                 if (refBadge) refBadge.classList.add('hidden');
-                if (discountNote) discountNote.classList.add('hidden');
+                if (discountNote) {
+                    if (isSelfRef) {
+                        discountNote.textContent = '⚠️ Không áp dụng hoa hồng cho đơn tự giới thiệu (Self-referral)';
+                        discountNote.classList.remove('hidden');
+                    } else {
+                        discountNote.classList.add('hidden');
+                    }
+                }
                 if (priceStriked) priceStriked.classList.add('hidden');
                 if (finalPriceEl) finalPriceEl.textContent = '1.099.000 VNĐ';
                 if (packageBox) {
@@ -1298,15 +1333,29 @@
                 return;
             }
 
-            const isLicenseKey = inputRef.length >= 3 && !inputRef.startsWith('STK_');
-            const isBankAff = !isLicenseKey && (inputRef.startsWith('STK_') || savedAff);
-            const amount = isLicenseKey ? 999000 : 1099000;
             const cleanPhone = phone.replace(/[^0-9]/g, '');
+
+            // Anti-Fraud Detection: Self-Referral Checks
+            const myPartnerPhone = localStorage.getItem('ql_my_partner_phone') || '';
+            const myPartnerStk = localStorage.getItem('ql_my_partner_stk') || '';
+            const myPartnerCode = localStorage.getItem('ql_my_partner_code') || '';
+
+            const isSelfReferral = (myPartnerPhone && cleanPhone === myPartnerPhone) ||
+                                  (myPartnerCode && (inputRef === myPartnerCode || savedAff === myPartnerCode)) ||
+                                  (myPartnerStk && ((inputRef && inputRef.includes(myPartnerStk)) || (savedAff && savedAff.includes(myPartnerStk))));
+
+            const isLicenseKey = inputRef.length >= 3 && !inputRef.startsWith('STK_');
+            const isBankAff = !isLicenseKey && !isSelfReferral && (inputRef.startsWith('STK_') || savedAff);
+            const amount = isLicenseKey ? 999000 : 1099000;
 
             let memo = `TOOL ${cleanPhone}`;
             let affTypeDetail = 'Mua trực tiếp (Không qua Affiliate)';
 
-            if (isLicenseKey) {
+            if (isSelfReferral) {
+                affTypeDetail = `⚠️ <b>CẢNH BÁO TỰ REF (SELF-REFERRAL):</b>\n` +
+                    `❌ <i>Người mua trùng SĐT / STK / Thiết bị với Đối tác Affiliate (<code>${myPartnerPhone || myPartnerStk || 'Cùng thiết bị'}</code>).</i>\n` +
+                    `⛔ <b>ĐƠN NÀY KHÔNG ĐỦ ĐIỀU KIỆN NHẬN HOA HỒNG!</b>`;
+            } else if (isLicenseKey) {
                 memo = `TOOL ${cleanPhone} ${inputRef}`;
                 affTypeDetail = `🔑 <b>License Key Giới Thiệu:</b> <code>${inputRef}</code> <i>(Khách được giảm 100k)</i>\n💵 <b>Hoa hồng Người Dùng Cũ:</b> 200.000đ - 300.000đ <i>(Tra cứu trên Google Sheet)</i>`;
             } else if (isBankAff) {
@@ -1338,7 +1387,7 @@
                 `🤝 <b>Thông tin Đối Tác / Ref:</b>\n${affTypeDetail}\n` +
                 `📝 <b>Cú pháp CK:</b> <code>${memo}</code>\n` +
                 `⏰ <b>Thời gian:</b> ${timeNow}\n\n` +
-                `⚡ <i>Khách vừa mở mã VietQR để thanh toán. Hãy kiểm tra biến động số dư và chuyển hoa hồng đối tác nhé!</i>`;
+                `⚡ <i>Khách vừa mở mã VietQR để thanh toán. Hãy kiểm tra biến động số dư và đối soát đơn hàng!</i>`;
 
             fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
                 method: 'POST',
@@ -1378,7 +1427,11 @@
             modal.classList.remove('hidden');
             modal.classList.add('flex');
 
-            showToast(`Đã tạo mã VietQR ${isLicenseKey ? '(Đã giảm 100k)' : ''}!`);
+            if (isSelfReferral) {
+                showToast("Đơn hàng ghi nhận theo giá niêm yết (Không áp dụng tự giới thiệu).");
+            } else {
+                showToast(`Đã tạo mã VietQR ${isLicenseKey ? '(Đã giảm 100k)' : ''}!`);
+            }
         }
 
         // Handle Affiliate Partner Registration Form Submission
@@ -1405,9 +1458,16 @@
                 return;
             }
 
+            const cleanPhone = phone.replace(/[^0-9]/g, '');
             const affCode = `STK_${rawStk}_${bank}`;
             const currentUrl = window.location.origin + window.location.pathname;
             const affUrl = `${currentUrl}?aff=${encodeURIComponent(affCode)}`;
+
+            // Save partner credentials to localStorage for Anti-Self-Referral protection
+            localStorage.setItem('ql_my_partner_phone', cleanPhone);
+            localStorage.setItem('ql_my_partner_stk', rawStk);
+            localStorage.setItem('ql_my_partner_name', name);
+            localStorage.setItem('ql_my_partner_code', affCode);
 
             // Send Real-time Partner Registration to Telegram
             const tgToken = '8948011048:AAGr78HbdYUC6UlH2tPGAMo0XUEYlxLx24E';
@@ -1421,7 +1481,7 @@
                 `🏦 <b>Ngân hàng:</b> ${bank}\n` +
                 `🔗 <b>Link Affiliate:</b> <code>${affUrl}</code>\n` +
                 `⏰ <b>Thời gian:</b> ${timeNow}\n\n` +
-                `⚡ <i>Hệ thống đã cấp link affiliate tự động. Hoa hồng sẽ gửi về đúng STK này khi có đơn hàng!</i>`;
+                `⚡ <i>Hệ thống đã cấp link affiliate tự động. Hoa hồng sẽ gửi về đúng STK này khi có đơn hàng hợp lệ!</i>`;
 
             fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
                 method: 'POST',
@@ -1449,14 +1509,26 @@
             let affParam = urlParams.get('aff');
             let refParam = urlParams.get('ref');
 
+            const myPartnerCode = localStorage.getItem('ql_my_partner_code');
+            const myPartnerStk = localStorage.getItem('ql_my_partner_stk');
+
             if (affParam) {
                 affParam = affParam.trim().toUpperCase();
-                localStorage.setItem('ql_aff_code', affParam);
+                // Anti-Self-Referral: If user clicks their own affiliate link on the same device
+                if (affParam === myPartnerCode || (myPartnerStk && affParam.includes(myPartnerStk))) {
+                    localStorage.removeItem('ql_aff_code');
+                } else {
+                    localStorage.setItem('ql_aff_code', affParam);
+                }
             }
             if (refParam) {
                 refParam = refParam.trim().toUpperCase();
                 if (refParam.startsWith('STK_')) {
-                    localStorage.setItem('ql_aff_code', refParam);
+                    if (refParam === myPartnerCode || (myPartnerStk && refParam.includes(myPartnerStk))) {
+                        localStorage.removeItem('ql_aff_code');
+                    } else {
+                        localStorage.setItem('ql_aff_code', refParam);
+                    }
                 } else {
                     localStorage.setItem('ql_aff_key', refParam);
                 }
