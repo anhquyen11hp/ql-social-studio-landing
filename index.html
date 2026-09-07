@@ -712,21 +712,27 @@
                         <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
                             <span>Mã Giới Thiệu / License Key Bạn Bè (Nếu có)</span>
                             <span class="text-amber-400 font-semibold text-[11px] flex items-center gap-1">
-                                <i class="fa-solid fa-gift"></i> Tự động ghi nhận đối tác
+                                <i class="fa-solid fa-gift"></i> Giảm ngay 100.000đ
                             </span>
                         </label>
                         <div class="relative">
-                            <input type="text" id="cust-ref" placeholder="Ví dụ: QL-8F29A (Bỏ trống nếu mua trực tiếp)" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 uppercase font-mono transition-all pr-24">
+                            <input type="text" id="cust-ref" oninput="updateFormPrice()" placeholder="Ví dụ: QL-8F29A (Nhập mã để nhận ưu đãi 100k)" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 uppercase font-mono transition-all pr-28">
                             <span id="ref-applied-badge" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-md font-bold">
-                                ✓ Đã áp dụng Ref
+                                ✓ Giảm 100K
                             </span>
                         </div>
                     </div>
 
-                    <!-- Selected Package Note -->
-                    <div class="p-3.5 sm:p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between text-xs sm:text-sm">
-                        <span class="text-slate-300 font-semibold">Gói đăng ký: <strong class="text-emerald-400 font-bold">Bản Quyền Tool QL Social Studio (PC)</strong></span>
-                        <span class="text-emerald-400 font-extrabold text-sm sm:text-base">1.099.000 VNĐ</span>
+                    <!-- Selected Package Dynamic Price Card -->
+                    <div id="package-price-box" class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs sm:text-sm transition-all">
+                        <div>
+                            <span class="text-slate-300 font-semibold block">Gói đăng ký: <strong class="text-emerald-400 font-bold">Bản Quyền Tool QL Social Studio (PC)</strong></span>
+                            <span id="ref-discount-note" class="hidden text-[11px] text-amber-400 font-semibold">⚡ Đã áp dụng ưu đãi Giảm 100.000đ từ Người Giới Thiệu</span>
+                        </div>
+                        <div class="text-left sm:text-right">
+                            <span id="price-original-striked" class="hidden text-xs text-slate-500 line-through mr-2">1.099.000đ</span>
+                            <span id="final-form-price" class="text-emerald-400 font-extrabold text-base sm:text-lg font-display">1.099.000 VNĐ</span>
+                        </div>
                     </div>
 
                     <!-- Submit Button -->
@@ -1020,7 +1026,10 @@
                     <span class="text-slate-400 flex items-center gap-1.5">
                         <i class="fa-solid fa-tag text-slate-500 text-xs w-4"></i> Số tiền:
                     </span>
-                    <span class="text-amber-400 font-extrabold text-sm sm:text-base font-display">1.099.000 VNĐ</span>
+                    <div class="text-right">
+                        <span id="modal-discount-tag" class="hidden text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/30 block mb-0.5">Đã giảm 100k (Ref)</span>
+                        <span id="qr-modal-amount" class="text-amber-400 font-extrabold text-sm sm:text-base font-display">1.099.000 VNĐ</span>
+                    </div>
                 </div>
 
                 <!-- Memo with Copy -->
@@ -1092,6 +1101,38 @@
             });
         }
 
+        // Dynamic Price Update based on Referral Code
+        function updateFormPrice() {
+            const refInput = document.getElementById('cust-ref');
+            const refBadge = document.getElementById('ref-applied-badge');
+            const discountNote = document.getElementById('ref-discount-note');
+            const priceStriked = document.getElementById('price-original-striked');
+            const finalPriceEl = document.getElementById('final-form-price');
+            const packageBox = document.getElementById('package-price-box');
+
+            const refVal = refInput ? refInput.value.trim() : '';
+
+            if (refVal.length >= 3) {
+                if (refBadge) refBadge.classList.remove('hidden');
+                if (discountNote) discountNote.classList.remove('hidden');
+                if (priceStriked) priceStriked.classList.remove('hidden');
+                if (finalPriceEl) finalPriceEl.textContent = '999.000 VNĐ';
+                if (packageBox) {
+                    packageBox.classList.remove('bg-emerald-500/10', 'border-emerald-500/30');
+                    packageBox.classList.add('bg-amber-500/10', 'border-amber-500/40');
+                }
+            } else {
+                if (refBadge) refBadge.classList.add('hidden');
+                if (discountNote) discountNote.classList.add('hidden');
+                if (priceStriked) priceStriked.classList.add('hidden');
+                if (finalPriceEl) finalPriceEl.textContent = '1.099.000 VNĐ';
+                if (packageBox) {
+                    packageBox.classList.add('bg-emerald-500/10', 'border-emerald-500/30');
+                    packageBox.classList.remove('bg-amber-500/10', 'border-amber-500/40');
+                }
+            }
+        }
+
         // Handle Checkout Form Submission & Generate VietQR
         function handleFormSubmit(e) {
             e.preventDefault();
@@ -1106,14 +1147,17 @@
                 return;
             }
 
+            const hasRef = Boolean(refCode && refCode.length >= 3);
+            const amount = hasRef ? 999000 : 1099000;
+
             // Clean phone & format transfer memo
             const cleanPhone = phone.replace(/[^0-9]/g, '');
-            const memo = refCode ? `TOOL ${cleanPhone} ${refCode}` : `TOOL ${cleanPhone}`;
+            const memo = hasRef ? `TOOL ${cleanPhone} ${refCode}` : `TOOL ${cleanPhone}`;
 
             // 1. Meta Pixel Conversion Tracking (Purchase & Lead)
             if (typeof fbq === 'function') {
                 fbq('track', 'Purchase', {
-                    value: 1099000,
+                    value: amount,
                     currency: 'VND',
                     content_name: 'Tool QL Social Studio PC'
                 });
@@ -1129,9 +1173,9 @@
                 `👤 <b>Họ tên:</b> ${name}\n` +
                 `📞 <b>Số điện thoại (Zalo):</b> ${phone}\n` +
                 `📧 <b>Email nhận link:</b> ${email}\n` +
-                `💰 <b>Gói:</b> Bản Quyền Vĩnh Viễn (1.099.000 VNĐ)\n` +
-                `🤝 <b>License Key Giới Thiệu (Ref):</b> <code>${refCode || 'Không có (Mua trực tiếp)'}</code>\n` +
-                `💵 <b>Hoa hồng Affiliate:</b> ${refCode ? '200.000đ - 300.000đ' : '0đ'}\n` +
+                `💰 <b>Số tiền thanh toán:</b> ${amount.toLocaleString('vi-VN')} VNĐ ${hasRef ? '<i>(Đã giảm 100k qua Ref)</i>' : ''}\n` +
+                `🤝 <b>License Key Giới Thiệu (Ref):</b> <code>${refCode || 'Không có (Mua trực tiếp 1.099k)'}</code>\n` +
+                `💵 <b>Hoa hồng Affiliate:</b> ${hasRef ? '200.000đ - 300.000đ' : '0đ'}\n` +
                 `📝 <b>Cú pháp CK:</b> <code>${memo}</code>\n` +
                 `⏰ <b>Thời gian:</b> ${timeNow}\n\n` +
                 `⚡ <i>Khách vừa mở mã VietQR để thanh toán. Hãy kiểm tra biến động số dư và tra cứu License Key trên Google Sheet để chuyển hoa hồng nhé!</i>`;
@@ -1146,9 +1190,8 @@
                 })
             }).catch(err => console.log('Telegram Alert Error:', err));
 
-            // Generate VietQR Image URL using VietQR API
-            // Bank: VietinBank (ICB), Account: 101869296314, Account Name: HOANG THE QUYEN, Amount: 1099000
-            const qrUrl = `https://img.vietqr.io/image/ICB-101869296314-compact2.png?amount=1099000&addInfo=${encodeURIComponent(memo)}&accountName=HOANG%20THE%20QUYEN`;
+            // Generate VietQR Image URL using VietQR API with dynamic amount (999.000 or 1.099.000)
+            const qrUrl = `https://img.vietqr.io/image/ICB-101869296314-compact2.png?amount=${amount}&addInfo=${encodeURIComponent(memo)}&accountName=HOANG%20THE%20QUYEN`;
 
             const imgEl = document.getElementById('vietqr-img');
             imgEl.onerror = function() {
@@ -1157,12 +1200,21 @@
             imgEl.src = qrUrl;
             document.getElementById('qr-memo').textContent = memo;
 
+            // Update Modal Amount & Discount Badge
+            const modalAmountEl = document.getElementById('qr-modal-amount');
+            const modalDiscountTag = document.getElementById('modal-discount-tag');
+            if (modalAmountEl) modalAmountEl.textContent = `${amount.toLocaleString('vi-VN')} VNĐ`;
+            if (modalDiscountTag) {
+                if (hasRef) modalDiscountTag.classList.remove('hidden');
+                else modalDiscountTag.classList.add('hidden');
+            }
+
             // Display Payment Modal
             const modal = document.getElementById('payment-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
 
-            showToast("Đã tạo mã VietQR & ghi nhận đơn hàng!");
+            showToast(`Đã tạo mã VietQR ${hasRef ? '(Đã giảm 100k)' : ''}!`);
         }
 
         // Generate Affiliate Referral Link Tool
@@ -1196,14 +1248,11 @@
             const savedRef = localStorage.getItem('ql_aff_ref');
             if (savedRef) {
                 const refInput = document.getElementById('cust-ref');
-                const refBadge = document.getElementById('ref-applied-badge');
                 if (refInput) {
                     refInput.value = savedRef;
                 }
-                if (refBadge) {
-                    refBadge.classList.remove('hidden');
-                }
             }
+            updateFormPrice();
         });
 
         // Track InitiateCheckout on all Order Buttons
