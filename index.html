@@ -164,13 +164,17 @@
             </nav>
 
             <!-- Header Action Buttons -->
-            <div class="flex items-center gap-2 sm:gap-2.5 xl:gap-3 shrink-0">
+            <div class="flex items-center gap-1.5 sm:gap-2.5 xl:gap-3 shrink-0">
+                <a href="#affiliate" class="lg:hidden inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-400 text-[11px] font-bold transition-all whitespace-nowrap">
+                    <i class="fa-solid fa-coins text-[10px]"></i>
+                    <span>Affiliate</span>
+                </a>
                 <a href="https://zalo.me/0382308969" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-bold text-slate-200 transition-all whitespace-nowrap">
                     <i class="fa-solid fa-headset text-emerald-400"></i>
                     <span>Zalo: 0382308969</span>
                 </a>
-                <a href="#order-form" class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition-all transform active:scale-95 whitespace-nowrap">
-                    SỞ HỮU TOOL 1.099K
+                <a href="#order-form" class="px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-slate-950 font-extrabold text-[11px] sm:text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition-all transform active:scale-95 whitespace-nowrap">
+                    SỞ HỮU TOOL
                 </a>
             </div>
         </div>
@@ -1125,14 +1129,15 @@
         </div>
     </footer>
 
-    <!-- Mobile Sticky CTA Bottom Bar -->
-    <div class="fixed bottom-0 left-0 w-full z-40 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 p-3 pb-4 sm:pb-3 md:hidden flex items-center justify-between gap-3 shadow-2xl">
-        <div class="pl-1">
-            <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Tool AI PC (Vĩnh Viễn)</span>
-            <span class="text-base font-extrabold text-emerald-400 leading-none">1.099.000đ</span>
-        </div>
-        <a href="#order-form" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 active:scale-95 transition-all">
-            Đăng Ký Ngay
+    <!-- Mobile Sticky CTA Bottom Bar (Có cả 2 lối tắt: Kiếm Tiền Affiliate & Mua Tool) -->
+    <div class="fixed bottom-0 left-0 w-full z-40 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 p-2.5 pb-4 sm:pb-3 md:hidden flex items-center justify-between gap-2 shadow-2xl">
+        <a href="#affiliate" class="flex-1 py-2.5 px-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/40 text-amber-300 font-extrabold text-[11px] flex items-center justify-center gap-1.5 active:scale-95 transition-all shadow-md">
+            <i class="fa-solid fa-coins text-amber-400 text-xs shrink-0"></i>
+            <span class="truncate">Kiếm Tiền Affiliate</span>
+        </a>
+        <a href="#order-form" class="flex-1 py-2.5 px-2 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 text-slate-950 font-black text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/20 active:scale-95 transition-all">
+            <i class="fa-solid fa-bolt text-xs shrink-0"></i>
+            <span class="truncate">Sở Hữu Tool 1.099K</span>
         </a>
     </div>
 
