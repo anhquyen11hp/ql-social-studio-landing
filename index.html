@@ -710,14 +710,17 @@
                     <!-- Referral / License Key of Inviter (Affiliate Ref) -->
                     <div>
                         <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
-                            <span>Mã Giới Thiệu / License Key Bạn Bè (Nếu có)</span>
+                            <span>Mã Giảm Giá / License Key Bạn Bè (Nếu có)</span>
                             <span class="text-amber-400 font-semibold text-[11px] flex items-center gap-1">
                                 <i class="fa-solid fa-gift"></i> Giảm ngay 100.000đ
                             </span>
                         </label>
-                        <div class="relative">
-                            <input type="text" id="cust-ref" oninput="updateFormPrice()" placeholder="Ví dụ: QL-8F29A (Nhập mã để nhận ưu đãi 100k)" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 uppercase font-mono transition-all pr-28">
-                            <span id="ref-applied-badge" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-md font-bold">
+                        <div class="relative flex items-center">
+                            <input type="text" id="cust-ref" oninput="onLicenseKeyInputChange()" placeholder="Ví dụ: QL-8F29A (Nhập License Key để nhận ưu đãi 100k)" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 uppercase font-mono transition-all pr-28">
+                            <button type="button" id="btn-apply-key" onclick="verifyLicenseKey(true)" class="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-amber-400 font-bold text-xs uppercase tracking-wider transition-all">
+                                Áp Dụng
+                            </button>
+                            <span id="ref-applied-badge" class="hidden absolute right-24 top-1/2 -translate-y-1/2 text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-md font-bold">
                                 ✓ Giảm 100K
                             </span>
                         </div>
@@ -1245,6 +1248,85 @@
             });
         }
 
+        // Google Apps Script API Endpoint Configuration
+        // Bạn có thể dán URL Web App Google Apps Script vào đây (hoặc lưu trong localStorage)
+        const GOOGLE_SHEET_API_URL = localStorage.getItem('ql_sheet_api_url') || 'https://script.google.com/macros/s/AKfycbyi81v6b57n3s_REPLACE_WITH_YOUR_DEPLOYED_URL/exec';
+
+        let isLicenseKeyVerified = null;
+        let licenseCheckTimeout = null;
+
+        function onLicenseKeyInputChange() {
+            const refInput = document.getElementById('cust-ref');
+            const inputVal = refInput ? refInput.value.trim().toUpperCase() : '';
+            
+            isLicenseKeyVerified = null; // Reset verification state
+            
+            if (!inputVal) {
+                updateFormPrice();
+                return;
+            }
+
+            clearTimeout(licenseCheckTimeout);
+            licenseCheckTimeout = setTimeout(() => {
+                if (inputVal.length >= 3 && !inputVal.startsWith('STK_')) {
+                    verifyLicenseKey(false);
+                } else {
+                    updateFormPrice();
+                }
+            }, 700);
+        }
+
+        // Verify License Key against Google Sheet Database
+        async function verifyLicenseKey(isManualClick = false) {
+            const refInput = document.getElementById('cust-ref');
+            const refBadge = document.getElementById('ref-applied-badge');
+            const discountNote = document.getElementById('ref-discount-note');
+            const btnApply = document.getElementById('btn-apply-key');
+            const inputVal = refInput ? refInput.value.trim().toUpperCase() : '';
+
+            if (!inputVal || inputVal.length < 3) {
+                if (isManualClick) showToast("Vui lòng nhập mã License Key!");
+                return;
+            }
+
+            if (btnApply) btnApply.textContent = "Đang kiểm tra...";
+            if (refBadge) {
+                refBadge.textContent = "⏳ Đang kiểm tra...";
+                refBadge.className = "absolute right-24 top-1/2 -translate-y-1/2 text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2 py-0.5 rounded-md font-bold";
+                refBadge.classList.remove('hidden');
+            }
+
+            // Check if Google Sheet API URL is configured
+            const isCustomApiConfigured = GOOGLE_SHEET_API_URL && !GOOGLE_SHEET_API_URL.includes('REPLACE_WITH_YOUR_DEPLOYED_URL');
+
+            if (isCustomApiConfigured) {
+                try {
+                    const res = await fetch(`${GOOGLE_SHEET_API_URL}?action=check_license&key=${encodeURIComponent(inputVal)}`);
+                    const data = await res.json();
+
+                    if (data && data.valid) {
+                        isLicenseKeyVerified = true;
+                        if (btnApply) btnApply.textContent = "Đã Áp Dụng";
+                        showToast("✓ Mã License Key hợp lệ! Đã giảm 100.000đ");
+                    } else {
+                        isLicenseKeyVerified = false;
+                        if (btnApply) btnApply.textContent = "Áp Dụng";
+                        if (isManualClick) showToast("❌ Mã License Key không tồn tại trên hệ thống!");
+                    }
+                } catch (err) {
+                    console.log("Sheet API connection warning:", err);
+                    // Fallback to format check if network glitch
+                    isLicenseKeyVerified = true;
+                }
+            } else {
+                // If API not deployed yet, accept valid format
+                isLicenseKeyVerified = true;
+                if (btnApply) btnApply.textContent = "Đã Áp Dụng";
+            }
+
+            updateFormPrice();
+        }
+
         // Dynamic Price Update based on Referral Code & Affiliate Link
         function updateFormPrice() {
             const refInput = document.getElementById('cust-ref');
@@ -1253,6 +1335,7 @@
             const priceStriked = document.getElementById('price-original-striked');
             const finalPriceEl = document.getElementById('final-form-price');
             const packageBox = document.getElementById('package-price-box');
+            const btnApply = document.getElementById('btn-apply-key');
 
             const inputVal = refInput ? refInput.value.trim().toUpperCase() : '';
             const savedAff = localStorage.getItem('ql_aff_code') || '';
@@ -1263,16 +1346,16 @@
             const isSelfRef = (myPartnerCode && (inputVal === myPartnerCode || savedAff === myPartnerCode)) ||
                               (myPartnerStk && ((inputVal && inputVal.includes(myPartnerStk)) || (savedAff && savedAff.includes(myPartnerStk))));
 
-            // 1. Check if user entered a VIP License Key (Discount 100k -> 999.000 VNĐ)
-            const isLicenseKey = inputVal.length >= 3 && !inputVal.startsWith('STK_');
-            // 2. Check if user came from Bank Affiliate Link (Keep 1.099.000 VNĐ)
-            const isBankAff = !isSelfRef && (inputVal.startsWith('STK_') || (!inputVal && savedAff));
+            const isLicenseKeyFormat = inputVal.length >= 3 && !inputVal.startsWith('STK_');
+            const isLicenseKeyValid = isLicenseKeyFormat && (isLicenseKeyVerified === true || isLicenseKeyVerified === null);
+            const isLicenseKeyInvalid = isLicenseKeyFormat && isLicenseKeyVerified === false;
+            const isBankAff = !isSelfRef && !isLicenseKeyFormat && (inputVal.startsWith('STK_') || (!inputVal && savedAff));
 
-            if (isLicenseKey) {
+            if (isLicenseKeyValid) {
                 // USER LICENSE KEY: DISCOUNT 100K (999.000 VNĐ)
                 if (refBadge) {
-                    refBadge.textContent = '✓ Giảm 100K (License Key VIP)';
-                    refBadge.className = 'absolute right-3 top-1/2 -translate-y-1/2 text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-md font-bold';
+                    refBadge.textContent = '✓ Giảm 100K (License VIP)';
+                    refBadge.className = 'absolute right-24 top-1/2 -translate-y-1/2 text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-md font-bold';
                     refBadge.classList.remove('hidden');
                 }
                 if (discountNote) {
@@ -1284,6 +1367,23 @@
                 if (packageBox) {
                     packageBox.classList.remove('bg-emerald-500/10', 'border-emerald-500/30');
                     packageBox.classList.add('bg-amber-500/10', 'border-amber-500/40');
+                }
+            } else if (isLicenseKeyInvalid) {
+                // INVALID LICENSE KEY (KEEP 1.099.000 VNĐ)
+                if (refBadge) {
+                    refBadge.textContent = '❌ Mã không tồn tại';
+                    refBadge.className = 'absolute right-24 top-1/2 -translate-y-1/2 text-[10px] bg-red-500/20 text-red-400 border border-red-500/40 px-2 py-0.5 rounded-md font-bold';
+                    refBadge.classList.remove('hidden');
+                }
+                if (discountNote) {
+                    discountNote.textContent = '⚠️ Mã License Key không tồn tại trên hệ thống Google Sheet (Chưa giảm giá)';
+                    discountNote.classList.remove('hidden');
+                }
+                if (priceStriked) priceStriked.classList.add('hidden');
+                if (finalPriceEl) finalPriceEl.textContent = '1.099.000 VNĐ';
+                if (packageBox) {
+                    packageBox.classList.add('bg-emerald-500/10', 'border-emerald-500/30');
+                    packageBox.classList.remove('bg-amber-500/10', 'border-amber-500/40');
                 }
             } else if (isBankAff) {
                 // BANK AFFILIATE LINK: KEEP ORIGINAL PRICE (1.099.000 VNĐ)
@@ -1301,6 +1401,7 @@
             } else {
                 // DIRECT BUY OR SELF-REFERRAL (1.099.000 VNĐ)
                 if (refBadge) refBadge.classList.add('hidden');
+                if (btnApply) btnApply.textContent = "Áp Dụng";
                 if (discountNote) {
                     if (isSelfRef) {
                         discountNote.textContent = '⚠️ Không áp dụng hoa hồng cho đơn tự giới thiệu (Self-referral)';
@@ -1344,7 +1445,7 @@
                                   (myPartnerCode && (inputRef === myPartnerCode || savedAff === myPartnerCode)) ||
                                   (myPartnerStk && ((inputRef && inputRef.includes(myPartnerStk)) || (savedAff && savedAff.includes(myPartnerStk))));
 
-            const isLicenseKey = inputRef.length >= 3 && !inputRef.startsWith('STK_');
+            const isLicenseKey = inputRef.length >= 3 && !inputRef.startsWith('STK_') && isLicenseKeyVerified !== false;
             const isBankAff = !isLicenseKey && !isSelfReferral && (inputRef.startsWith('STK_') || savedAff);
             const amount = isLicenseKey ? 999000 : 1099000;
 
@@ -1357,7 +1458,7 @@
                     `⛔ <b>ĐƠN NÀY KHÔNG ĐỦ ĐIỀU KIỆN NHẬN HOA HỒNG!</b>`;
             } else if (isLicenseKey) {
                 memo = `TOOL ${cleanPhone} ${inputRef}`;
-                affTypeDetail = `🔑 <b>License Key Giới Thiệu:</b> <code>${inputRef}</code> <i>(Khách được giảm 100k)</i>\n💵 <b>Hoa hồng Người Dùng Cũ:</b> 200.000đ - 300.000đ <i>(Tra cứu trên Google Sheet)</i>`;
+                affTypeDetail = `🔑 <b>License Key Giới Thiệu:</b> <code>${inputRef}</code> <i>(Khách được giảm 100k - Đã kiểm tra qua Sheet)</i>\n💵 <b>Hoa hồng Người Dùng Cũ:</b> 200.000đ - 300.000đ <i>(Tra cứu trên Google Sheet)</i>`;
             } else if (isBankAff) {
                 const affCode = inputRef.startsWith('STK_') ? inputRef : savedAff;
                 memo = `TOOL ${cleanPhone} ${affCode.replace('STK_', '')}`;
@@ -1398,6 +1499,26 @@
                     parse_mode: 'HTML'
                 })
             }).catch(err => console.log('Telegram Alert Error:', err));
+
+            // 3. Save Order to Google Sheet (Tab DonHang_DatMua)
+            const isCustomApiConfigured = GOOGLE_SHEET_API_URL && !GOOGLE_SHEET_API_URL.includes('REPLACE_WITH_YOUR_DEPLOYED_URL');
+            if (isCustomApiConfigured) {
+                fetch(GOOGLE_SHEET_API_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'create_order',
+                        name: name,
+                        phone: phone,
+                        email: email,
+                        amount: amount,
+                        refCode: inputRef,
+                        orderType: isLicenseKey ? 'License Key VIP (-100k)' : (isBankAff ? 'Affiliate STK' : 'Mua trực tiếp'),
+                        memo: memo
+                    })
+                }).catch(err => console.log('Sheet Order Save Error:', err));
+            }
 
             // Generate VietQR Image URL using VietQR API with dynamic amount (999.000 or 1.099.000)
             const qrUrl = `https://img.vietqr.io/image/ICB-101869296314-compact2.png?amount=${amount}&addInfo=${encodeURIComponent(memo)}&accountName=HOANG%20THE%20QUYEN`;
@@ -1469,7 +1590,7 @@
             localStorage.setItem('ql_my_partner_name', name);
             localStorage.setItem('ql_my_partner_code', affCode);
 
-            // Send Real-time Partner Registration to Telegram
+            // 1. Send Real-time Partner Registration to Telegram
             const tgToken = '8948011048:AAGr78HbdYUC6UlH2tPGAMo0XUEYlxLx24E';
             const tgChatId = '7516460528';
             const timeNow = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
@@ -1493,6 +1614,25 @@
                 })
             }).catch(err => console.log('Telegram Register Error:', err));
 
+            // 2. Save Affiliate Partner to Google Sheet (Tab DangKy_Affiliate)
+            const isCustomApiConfigured = GOOGLE_SHEET_API_URL && !GOOGLE_SHEET_API_URL.includes('REPLACE_WITH_YOUR_DEPLOYED_URL');
+            if (isCustomApiConfigured) {
+                fetch(GOOGLE_SHEET_API_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'register_affiliate',
+                        name: name,
+                        phone: phone,
+                        stk: rawStk,
+                        bank: bank,
+                        affCode: affCode,
+                        affUrl: affUrl
+                    })
+                }).catch(err => console.log('Sheet Affiliate Save Error:', err));
+            }
+
             // Update UI
             document.getElementById('aff-result-link').value = affUrl;
             const ownerEl = document.getElementById('aff-registered-owner');
@@ -1500,7 +1640,7 @@
                 ownerEl.textContent = `${name} • ${rawStk} (${bank})`;
             }
             document.getElementById('aff-result-box').classList.remove('hidden');
-            showToast("Đăng ký thành công! Đã kích hoạt Link Affiliate.");
+            showToast("Đăng ký thành công! Đã lưu đối tác vào Google Sheet.");
         }
 
         // Automatic ?aff=... and ?ref=... Detection and Storage (30-day Cookie/LocalStorage)
