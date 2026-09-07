@@ -710,19 +710,16 @@
                     <!-- Referral / License Key of Inviter (Affiliate Ref) -->
                     <div>
                         <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
-                            <span>Mã Giảm Giá / License Key Bạn Bè (Nếu có)</span>
+                            <span>Mã Giảm Giá / License Key (Nếu có)</span>
                             <span class="text-amber-400 font-semibold text-[11px] flex items-center gap-1">
                                 <i class="fa-solid fa-gift"></i> Giảm ngay 100.000đ
                             </span>
                         </label>
                         <div class="relative flex items-center">
-                            <input type="text" id="cust-ref" oninput="onLicenseKeyInputChange()" placeholder="Ví dụ: QL-8F29A (Nhập License Key để nhận ưu đãi 100k)" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 uppercase font-mono transition-all pr-28">
-                            <button type="button" id="btn-apply-key" onclick="verifyLicenseKey(true)" class="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-amber-400 font-bold text-xs uppercase tracking-wider transition-all">
-                                Áp Dụng
+                            <input type="text" id="cust-ref" oninput="onLicenseKeyInputChange()" placeholder="Ví dụ: QL-8F29A (Nhập License Key nhận ưu đãi 100k)" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 uppercase font-mono transition-all pr-36">
+                            <button type="button" id="btn-apply-key" onclick="verifyLicenseKey(true)" class="absolute right-1.5 top-1/2 -translate-y-1/2 px-3 sm:px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-amber-400 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0">
+                                <span>Áp Dụng</span>
                             </button>
-                            <span id="ref-applied-badge" class="hidden absolute right-24 top-1/2 -translate-y-1/2 text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-md font-bold">
-                                ✓ Giảm 100K
-                            </span>
                         </div>
                     </div>
 
@@ -1278,7 +1275,6 @@
         // Verify License Key against Google Sheet Database
         async function verifyLicenseKey(isManualClick = false) {
             const refInput = document.getElementById('cust-ref');
-            const refBadge = document.getElementById('ref-applied-badge');
             const discountNote = document.getElementById('ref-discount-note');
             const btnApply = document.getElementById('btn-apply-key');
             const inputVal = refInput ? refInput.value.trim().toUpperCase() : '';
@@ -1288,11 +1284,9 @@
                 return;
             }
 
-            if (btnApply) btnApply.textContent = "Đang kiểm tra...";
-            if (refBadge) {
-                refBadge.textContent = "⏳ Đang kiểm tra...";
-                refBadge.className = "absolute right-24 top-1/2 -translate-y-1/2 text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2 py-0.5 rounded-md font-bold";
-                refBadge.classList.remove('hidden');
+            if (btnApply) {
+                btnApply.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Kiểm tra</span>';
+                btnApply.className = 'absolute right-1.5 top-1/2 -translate-y-1/2 px-3 py-2 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1 shrink-0';
             }
 
             // Check if Google Sheet API URL is configured
@@ -1305,22 +1299,17 @@
 
                     if (data && data.valid) {
                         isLicenseKeyVerified = true;
-                        if (btnApply) btnApply.textContent = "Đã Áp Dụng";
                         showToast("✓ Mã License Key hợp lệ! Đã giảm 100.000đ");
                     } else {
                         isLicenseKeyVerified = false;
-                        if (btnApply) btnApply.textContent = "Áp Dụng";
                         if (isManualClick) showToast("❌ Mã License Key không tồn tại trên hệ thống!");
                     }
                 } catch (err) {
                     console.log("Sheet API connection warning:", err);
-                    // Fallback to format check if network glitch
                     isLicenseKeyVerified = true;
                 }
             } else {
-                // If API not deployed yet, accept valid format
                 isLicenseKeyVerified = true;
-                if (btnApply) btnApply.textContent = "Đã Áp Dụng";
             }
 
             updateFormPrice();
@@ -1329,7 +1318,6 @@
         // Dynamic Price Update based on Referral Code & Affiliate Link
         function updateFormPrice() {
             const refInput = document.getElementById('cust-ref');
-            const refBadge = document.getElementById('ref-applied-badge');
             const discountNote = document.getElementById('ref-discount-note');
             const priceStriked = document.getElementById('price-original-striked');
             const finalPriceEl = document.getElementById('final-form-price');
@@ -1352,10 +1340,9 @@
 
             if (isLicenseKeyValid) {
                 // USER LICENSE KEY: DISCOUNT 100K (999.000 VNĐ)
-                if (refBadge) {
-                    refBadge.textContent = '✓ Giảm 100K (License VIP)';
-                    refBadge.className = 'absolute right-24 top-1/2 -translate-y-1/2 text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-md font-bold';
-                    refBadge.classList.remove('hidden');
+                if (btnApply) {
+                    btnApply.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-400"></i> <span class="text-emerald-400 font-extrabold">-100K VIP</span>';
+                    btnApply.className = 'absolute right-1.5 top-1/2 -translate-y-1/2 px-3 py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/50 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1 shrink-0';
                 }
                 if (discountNote) {
                     discountNote.textContent = '⚡ Đã áp dụng ưu đãi Giảm 100.000đ từ License Key người giới thiệu';
@@ -1369,10 +1356,9 @@
                 }
             } else if (isLicenseKeyInvalid) {
                 // INVALID LICENSE KEY (KEEP 1.099.000 VNĐ)
-                if (refBadge) {
-                    refBadge.textContent = '❌ Mã không tồn tại';
-                    refBadge.className = 'absolute right-24 top-1/2 -translate-y-1/2 text-[10px] bg-red-500/20 text-red-400 border border-red-500/40 px-2 py-0.5 rounded-md font-bold';
-                    refBadge.classList.remove('hidden');
+                if (btnApply) {
+                    btnApply.innerHTML = '<i class="fa-solid fa-circle-xmark text-red-400"></i> <span class="text-red-400 font-bold">Không Đúng</span>';
+                    btnApply.className = 'absolute right-1.5 top-1/2 -translate-y-1/2 px-3 py-2 rounded-lg bg-red-500/20 border border-red-500/40 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1 shrink-0';
                 }
                 if (discountNote) {
                     discountNote.textContent = '⚠️ Mã License Key không tồn tại trên hệ thống Google Sheet (Chưa giảm giá)';
@@ -1386,7 +1372,10 @@
                 }
             } else if (isBankAff) {
                 // BANK AFFILIATE LINK: KEEP ORIGINAL PRICE (1.099.000 VNĐ)
-                if (refBadge) refBadge.classList.add('hidden');
+                if (btnApply) {
+                    btnApply.innerHTML = '<span>Áp Dụng</span>';
+                    btnApply.className = 'absolute right-1.5 top-1/2 -translate-y-1/2 px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-amber-400 font-bold text-xs uppercase tracking-wider transition-all';
+                }
                 if (discountNote) {
                     discountNote.textContent = '⚡ Bạn đang mua qua Link Đối tác Affiliate chính thức';
                     discountNote.classList.remove('hidden');
@@ -1399,8 +1388,10 @@
                 }
             } else {
                 // DIRECT BUY OR SELF-REFERRAL (1.099.000 VNĐ)
-                if (refBadge) refBadge.classList.add('hidden');
-                if (btnApply) btnApply.textContent = "Áp Dụng";
+                if (btnApply) {
+                    btnApply.innerHTML = '<span>Áp Dụng</span>';
+                    btnApply.className = 'absolute right-1.5 top-1/2 -translate-y-1/2 px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-amber-400 font-bold text-xs uppercase tracking-wider transition-all';
+                }
                 if (discountNote) {
                     if (isSelfRef) {
                         discountNote.textContent = '⚠️ Không áp dụng hoa hồng cho đơn tự giới thiệu (Self-referral)';
