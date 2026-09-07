@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ==============================================================================
  * GOOGLE APPS SCRIPT - HỆ THỐNG XÁC THỰC LICENSE KEY & QUẢN LÝ AFFILIATE QL SOCIAL
  * ==============================================================================
@@ -96,11 +96,11 @@ function doPost(e) {
 }
 
 /**
- * Hàm tìm kiếm License Key trong Google Sheet
+ * Hàm tìm kiếm License Key trong Google Sheet (Bảo mật tối đa, chỉ so khớp chính xác)
  */
 function verifyLicenseKeyInSheet(targetKey) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  // Lấy sheet đầu tiên hoặc sheet chứa License
+  // Lấy sheet đầu tiên chứa License
   const sheet = ss.getSheets()[0];
   const data = sheet.getDataRange().getValues();
 
@@ -110,17 +110,15 @@ function verifyLicenseKeyInSheet(targetKey) {
 
   const cleanTarget = targetKey.replace(/[^A-Za-z0-9_-]/g, "").toUpperCase();
 
-  // Quét qua toàn bộ các hàng và cột trong bảng tính để tìm mã License Key
+  // Quét qua bảng tính: Chỉ so khớp CHÍNH XÁC ô dữ liệu (Tránh quét nhầm email/sđt/thông tin khác)
   for (let r = 0; r < data.length; r++) {
     for (let c = 0; c < data[r].length; c++) {
       const cellVal = String(data[r][c] || "").trim().toUpperCase();
-      if (cellVal && (cellVal === cleanTarget || cellVal.indexOf(cleanTarget) !== -1)) {
-        // Tìm thấy License Key khớp!
+      if (cellVal && cellVal === cleanTarget) {
+        // Tìm thấy License Key khớp chính xác 100%!
         return {
           valid: true,
-          message: "Mã License Key chính xác! Đã áp dụng giảm 100.000đ.",
-          key: cleanTarget,
-          row: r + 1
+          message: "Mã License Key chính xác! Đã áp dụng giảm 100.000đ."
         };
       }
     }
