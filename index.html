@@ -126,6 +126,13 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #22c55e;
         }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-green selection:text-slate-950 pb-28 md:pb-0">
@@ -170,7 +177,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-24 pb-14 sm:pt-36 sm:pb-16 md:pt-40 md:pb-20 overflow-hidden">
+    <section class="relative pt-20 pb-10 sm:pt-32 sm:pb-14 md:pt-36 md:pb-16 overflow-hidden">
         <!-- Glow Orbs in Background -->
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[350px] sm:h-[500px] pointer-events-none -z-10 opacity-30">
             <div class="absolute top-0 left-1/4 w-[280px] sm:w-[400px] h-[280px] sm:h-[400px] rounded-full bg-emerald-500 blur-[100px] sm:blur-[130px] combustion"></div>
@@ -180,56 +187,56 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
             <!-- Top Announcement Badge -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] sm:text-xs font-bold uppercase tracking-wide mb-5 sm:mb-6 animate-pulse-slow max-w-full">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] sm:text-xs font-bold uppercase tracking-wide mb-4 sm:mb-6 animate-pulse-slow max-w-full">
                 <span class="flex h-2 w-2 rounded-full bg-emerald-400 shrink-0"></span>
                 <span class="truncate sm:whitespace-normal">🚀 Tự Động Hóa 100% Video AI Affiliate Trên Máy Tính (PC)</span>
             </div>
 
             <!-- Main Headline -->
-            <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold text-white leading-[1.3] sm:leading-[1.28] tracking-normal max-w-5xl mx-auto uppercase px-1">
+            <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold text-white leading-[1.3] sm:leading-[1.28] tracking-normal max-w-5xl mx-auto uppercase px-1">
                 TẠO 4 VIDEO AI BÁN HÀNG NỔ ĐƠN TRONG 10 PHÚT <br class="hidden sm:inline">
                 <span class="gradient-text">CHỈ TỪ 1 LINK TIKTOK & 3 ẢNH SẢN PHẨM!</span>
             </h1>
 
             <!-- 1. VISUAL 3-STEP PIPELINE: Nhìn là hiểu ngay quy trình trong 2 giây -->
-            <div id="how-it-works" class="mt-8 sm:mt-10 max-w-4xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 relative">
+            <div id="how-it-works" class="mt-6 sm:mt-10 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-4 relative">
                     
                     <!-- Step 1 -->
-                    <div class="step-card rounded-2xl p-4 sm:p-5 border border-slate-700/80 text-left relative group">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-extrabold text-xs flex items-center justify-center font-mono">01</span>
-                            <i class="fa-solid fa-link text-emerald-400 text-lg"></i>
+                    <div class="step-card rounded-2xl p-3.5 sm:p-5 border border-slate-700/80 text-left relative group">
+                        <div class="flex items-center justify-between mb-1.5 sm:mb-2">
+                            <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-extrabold text-xs flex items-center justify-center font-mono">01</span>
+                            <i class="fa-solid fa-link text-emerald-400 text-base sm:text-lg"></i>
                         </div>
                         <h3 class="text-sm sm:text-base font-extrabold text-white">Dán 1 Link TikTok</h3>
-                        <p class="text-xs text-slate-400 mt-1">AI tự bóc kịch bản mới 100% chuẩn SEO & lọc sạch từ cấm.</p>
+                        <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1">AI tự bóc kịch bản mới 100% chuẩn SEO & lọc sạch từ cấm.</p>
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="step-card rounded-2xl p-4 sm:p-5 border border-slate-700/80 text-left relative group">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="w-7 h-7 rounded-lg bg-blue-500/20 text-blue-400 font-extrabold text-xs flex items-center justify-center font-mono">02</span>
-                            <i class="fa-solid fa-images text-blue-400 text-lg"></i>
+                    <div class="step-card rounded-2xl p-3.5 sm:p-5 border border-slate-700/80 text-left relative group">
+                        <div class="flex items-center justify-between mb-1.5 sm:mb-2">
+                            <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-blue-500/20 text-blue-400 font-extrabold text-xs flex items-center justify-center font-mono">02</span>
+                            <i class="fa-solid fa-images text-blue-400 text-base sm:text-lg"></i>
                         </div>
                         <h3 class="text-sm sm:text-base font-extrabold text-white">Thả 3 Ảnh Màn Hình</h3>
-                        <p class="text-xs text-slate-400 mt-1">AI tự sinh prompt chuẩn, giữ nguyên 100% hình dạng sản phẩm.</p>
+                        <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1">AI tự sinh prompt chuẩn, giữ nguyên 100% hình dạng sản phẩm.</p>
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="step-card rounded-2xl p-4 sm:p-5 border border-emerald-500/50 bg-emerald-950/20 text-left relative group shadow-lg shadow-emerald-500/10">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="w-7 h-7 rounded-lg bg-emerald-500 text-slate-950 font-extrabold text-xs flex items-center justify-center font-mono">03</span>
-                            <i class="fa-solid fa-bolt text-emerald-400 text-lg"></i>
+                    <div class="step-card rounded-2xl p-3.5 sm:p-5 border border-emerald-500/50 bg-emerald-950/20 text-left relative group shadow-lg shadow-emerald-500/10">
+                        <div class="flex items-center justify-between mb-1.5 sm:mb-2">
+                            <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-emerald-500 text-slate-950 font-extrabold text-xs flex items-center justify-center font-mono">03</span>
+                            <i class="fa-solid fa-bolt text-emerald-400 text-base sm:text-lg"></i>
                         </div>
                         <h3 class="text-sm sm:text-base font-extrabold text-white">Nhận 24 Video 1080p</h3>
-                        <p class="text-xs text-emerald-300/90 mt-1">Kéo thả thẳng vào CapCut, sẵn sàng đăng liền tay 4 video/ngày!</p>
+                        <p class="text-[11px] sm:text-xs text-emerald-300/90 mt-0.5 sm:mt-1">Kéo thả thẳng vào CapCut, sẵn sàng đăng liền tay 4 video/ngày!</p>
                     </div>
 
                 </div>
             </div>
 
             <!-- Action Buttons -->
-            <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
+            <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-2.5 sm:gap-4 justify-center items-center px-4 sm:px-0">
                 <a href="#order-form" class="w-full sm:w-auto px-5 py-3.5 sm:px-8 sm:py-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-600 hover:from-emerald-400 hover:to-green-400 text-slate-950 font-extrabold text-xs sm:text-base shadow-2xl shadow-emerald-500/30 transition-all transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 tracking-wide leading-snug">
                     <i class="fa-solid fa-bolt text-base sm:text-lg shrink-0"></i>
                     <span>SỞ HỮU TOOL VĨNH VIỄN (1.099.000đ)</span>
@@ -241,27 +248,27 @@
             </div>
 
             <!-- 2. PROOF STATS BAR (Thước đo kết quả thực tế - Scan 3s) -->
-            <div class="mt-8 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 text-left">
-                <div class="glossy-card rounded-2xl p-3 sm:p-4 border border-slate-800">
-                    <span class="text-xl sm:text-2xl font-black text-emerald-400 block leading-tight font-display">10 - 15 Phút</span>
-                    <span class="text-[11px] text-slate-400 font-semibold block mt-0.5">Tạo xong 4 video hoàn chỉnh</span>
+            <div class="mt-6 sm:mt-8 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 text-left">
+                <div class="glossy-card rounded-2xl p-2.5 sm:p-4 border border-slate-800">
+                    <span class="text-lg sm:text-2xl font-black text-emerald-400 block leading-tight font-display">10 - 15 Phút</span>
+                    <span class="text-[10px] sm:text-[11px] text-slate-400 font-semibold block mt-0.5">Tạo xong 4 video</span>
                 </div>
-                <div class="glossy-card rounded-2xl p-3 sm:p-4 border border-slate-800">
-                    <span class="text-xl sm:text-2xl font-black text-amber-400 block leading-tight font-display">7.900.000đ</span>
-                    <span class="text-[11px] text-slate-400 font-semibold block mt-0.5">Doanh thu thật từ 1 video AI</span>
+                <div class="glossy-card rounded-2xl p-2.5 sm:p-4 border border-slate-800">
+                    <span class="text-lg sm:text-2xl font-black text-amber-400 block leading-tight font-display">7.900.000đ</span>
+                    <span class="text-[10px] sm:text-[11px] text-slate-400 font-semibold block mt-0.5">Doanh thu thật 1 clip</span>
                 </div>
-                <div class="glossy-card rounded-2xl p-3 sm:p-4 border border-slate-800">
-                    <span class="text-xl sm:text-2xl font-black text-blue-400 block leading-tight font-display">0đ Sample</span>
-                    <span class="text-[11px] text-slate-400 font-semibold block mt-0.5">Không tốn tiền mua mẫu quay</span>
+                <div class="glossy-card rounded-2xl p-2.5 sm:p-4 border border-slate-800">
+                    <span class="text-lg sm:text-2xl font-black text-blue-400 block leading-tight font-display">0đ Sample</span>
+                    <span class="text-[10px] sm:text-[11px] text-slate-400 font-semibold block mt-0.5">Không tốn tiền mua mẫu</span>
                 </div>
-                <div class="glossy-card rounded-2xl p-3 sm:p-4 border border-slate-800">
-                    <span class="text-xl sm:text-2xl font-black text-purple-400 block leading-tight font-display">100% Safe</span>
-                    <span class="text-[11px] text-slate-400 font-semibold block mt-0.5">Tự lọc từ cấm TikTok Policy</span>
+                <div class="glossy-card rounded-2xl p-2.5 sm:p-4 border border-slate-800">
+                    <span class="text-lg sm:text-2xl font-black text-purple-400 block leading-tight font-display">100% Safe</span>
+                    <span class="text-[10px] sm:text-[11px] text-slate-400 font-semibold block mt-0.5">Tự lọc từ cấm Policy</span>
                 </div>
             </div>
 
             <!-- Embedded Video Demo Frame -->
-            <div id="demo" class="mt-10 sm:mt-12 max-w-4xl mx-auto glossy-card rounded-2xl sm:rounded-3xl p-2.5 sm:p-5 border border-slate-800 shadow-2xl relative">
+            <div id="demo" class="mt-8 sm:mt-12 max-w-4xl mx-auto glossy-card rounded-2xl sm:rounded-3xl p-2.5 sm:p-5 border border-slate-800 shadow-2xl relative">
                 <div class="flex items-center justify-between pb-2.5 sm:pb-3 px-2 border-b border-slate-800/80 mb-2.5 sm:mb-3 text-left">
                     <div class="flex items-center gap-2">
                         <span class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500"></span>
@@ -284,42 +291,47 @@
     </section>
 
     <!-- Social Proof Section -->
-    <section id="proof" class="py-16 sm:py-20 bg-slate-950 border-y border-slate-800/80 relative">
+    <section id="proof" class="py-10 sm:py-16 md:py-20 bg-slate-950 border-y border-slate-800/80 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+            <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
                 <span class="text-[11px] sm:text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20">Mô Hình Thực Chiến</span>
-                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-3 leading-snug">NGƯỜI THẬT – KẾT QUẢ THẬT: VẬN HÀNH 4 KÊNH BÁN HÀNG BẰNG TOOL</h2>
+                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2.5 sm:mt-3 leading-snug">NGƯỜI THẬT – KẾT QUẢ THẬT: VẬN HÀNH 4 KÊNH BÁN HÀNG BẰNG TOOL</h2>
                 <p class="text-slate-400 text-xs sm:text-sm md:text-base mt-2 leading-relaxed">
                     Phần mềm do chính mình code & dùng mỗi ngày. Doanh thu rút về được <strong class="text-slate-200 font-semibold">quay video trực tiếp màn hình</strong> đăng hàng ngày trong nhóm Zalo!
                 </p>
             </div>
 
-            <!-- Proof Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
+            <!-- Mobile Swipe Hint Indicator -->
+            <div class="md:hidden flex items-center justify-center gap-1.5 text-[11px] text-emerald-400/90 font-semibold mb-3">
+                <i class="fa-solid fa-arrows-left-right animate-pulse"></i> Vuốt ngang xem 3 bằng chứng thực tế
+            </div>
+
+            <!-- Proof Container: Swipeable on Mobile, Grid on Desktop -->
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-3 md:grid md:grid-cols-3 md:gap-6 no-scrollbar">
                 
                 <!-- Proof Card 1 (With Real Screenshot Proof) -->
-                <div class="glossy-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-800 flex flex-col justify-between group">
+                <div class="min-w-[85vw] sm:min-w-0 snap-center glossy-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-slate-800 flex flex-col justify-between group">
                     <div>
-                        <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center justify-between mb-2.5 sm:mb-3">
                             <span class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">Case Study Thực Tế</span>
                             <i class="fa-solid fa-wallet text-emerald-400 text-lg"></i>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-extrabold text-white">Doanh Thu 7,9 Triệu (65 Đơn)</h3>
-                        <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+                        <h3 class="text-base sm:text-xl font-extrabold text-white">Doanh Thu 7,9 Triệu (65 Đơn)</h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1.5 sm:mt-2 leading-relaxed">
                             Chỉ dùng đúng 3 ảnh chụp màn hình sản phẩm. Tool tự động bóc kịch bản mới và sinh video AI cắn xu hướng lập tức.
                         </p>
 
                         <!-- Screenshot Image Thumbnail Frame with Facebook Video Link -->
-                        <a href="https://www.facebook.com/share/r/1HAZDGPoRU/" target="_blank" rel="noopener noreferrer" class="mt-4 block relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-950 shadow-inner group/img hover:border-emerald-400 transition-all cursor-pointer" title="Bấm để xem video thực tế trên Facebook">
-                            <img src="proof-tiktok-shop.png" alt="Ảnh chụp màn hình doanh thu thật TikTok Shop" class="w-full h-auto object-cover max-h-56 sm:max-h-64 rounded-xl group-hover/img:scale-105 transition-transform duration-300">
+                        <a href="https://www.facebook.com/share/r/1HAZDGPoRU/" target="_blank" rel="noopener noreferrer" class="mt-3 sm:mt-4 block relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-950 shadow-inner group/img hover:border-emerald-400 transition-all cursor-pointer" title="Bấm để xem video thực tế trên Facebook">
+                            <img src="proof-tiktok-shop.png" alt="Ảnh chụp màn hình doanh thu thật TikTok Shop" class="w-full h-auto object-cover max-h-48 sm:max-h-64 rounded-xl group-hover/img:scale-105 transition-transform duration-300">
                             
                             <!-- Video Play Overlay Badge -->
                             <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5 backdrop-blur-[2px]">
-                                <div class="w-11 h-11 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shadow-lg shadow-emerald-500/40 transform scale-90 group-hover/img:scale-100 transition-transform">
-                                    <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center shadow-lg shadow-emerald-500/40 transform scale-90 group-hover/img:scale-100 transition-transform">
+                                    <i class="fa-solid fa-play text-xs sm:text-sm ml-0.5"></i>
                                 </div>
-                                <span class="text-[11px] font-bold text-white bg-slate-900/90 px-3 py-1 rounded-full border border-slate-700 shadow flex items-center gap-1">
-                                    <i class="fa-brands fa-facebook text-blue-400"></i> Xem Video Gốc Trên Facebook
+                                <span class="text-[10px] sm:text-[11px] font-bold text-white bg-slate-900/90 px-2.5 py-1 rounded-full border border-slate-700 shadow flex items-center gap-1">
+                                    <i class="fa-brands fa-facebook text-blue-400"></i> Xem Video Trên Facebook
                                 </span>
                             </div>
 
@@ -330,35 +342,35 @@
                         </a>
                     </div>
 
-                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs sm:text-sm">
+                    <div class="mt-3 sm:mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs sm:text-sm">
                         <span class="text-slate-400 font-medium">GMV Video 1:</span>
                         <span class="text-emerald-400 font-extrabold">7.900.000đ (65 đơn)</span>
                     </div>
                 </div>
 
                 <!-- Proof Card 2 (With Multi-Channel Proof Image) -->
-                <div class="glossy-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-800 flex flex-col justify-between group">
+                <div class="min-w-[85vw] sm:min-w-0 snap-center glossy-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-slate-800 flex flex-col justify-between group">
                     <div>
-                        <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center justify-between mb-2.5 sm:mb-3">
                             <span class="px-2.5 py-1 rounded-lg bg-blue-500/10 text-blue-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">Vận Hành Đa Ngành</span>
                             <i class="fa-solid fa-chart-line text-blue-400 text-lg"></i>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-extrabold text-white">4 Kênh AI Chạy Song Song</h3>
-                        <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+                        <h3 class="text-base sm:text-xl font-extrabold text-white">4 Kênh AI Chạy Song Song</h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1.5 sm:mt-2 leading-relaxed">
                             Phủ sóng đa ngành từ Đồ ăn ASMR, Mỹ phẩm UGC review, Gia dụng đến Thời trang mà không tốn tiền mua sample.
                         </p>
 
                         <!-- Screenshot Image Thumbnail Frame with Facebook Video Link -->
-                        <a href="https://www.facebook.com/share/r/1EpTgaAMz4/" target="_blank" rel="noopener noreferrer" class="mt-4 block relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-950 shadow-inner group/img hover:border-blue-400 transition-all cursor-pointer" title="Bấm để xem video thực tế 4 kênh trên Facebook">
-                            <img src="proof-multi-channel.png" alt="Ảnh thực tế 4 kênh AI đa ngành: Mỹ phẩm, Gia dụng, Thời trang, Đồ ăn" class="w-full h-auto object-cover max-h-56 sm:max-h-64 rounded-xl group-hover/img:scale-105 transition-transform duration-300">
+                        <a href="https://www.facebook.com/share/r/1EpTgaAMz4/" target="_blank" rel="noopener noreferrer" class="mt-3 sm:mt-4 block relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-950 shadow-inner group/img hover:border-blue-400 transition-all cursor-pointer" title="Bấm để xem video thực tế 4 kênh trên Facebook">
+                            <img src="proof-multi-channel.png" alt="Ảnh thực tế 4 kênh AI đa ngành: Mỹ phẩm, Gia dụng, Thời trang, Đồ ăn" class="w-full h-auto object-cover max-h-48 sm:max-h-64 rounded-xl group-hover/img:scale-105 transition-transform duration-300">
                             
                             <!-- Video Play Overlay Badge -->
                             <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5 backdrop-blur-[2px]">
-                                <div class="w-11 h-11 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg shadow-blue-500/40 transform scale-90 group-hover/img:scale-100 transition-transform">
-                                    <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-blue-500 text-white flex items-center justify-center shadow-lg shadow-blue-500/40 transform scale-90 group-hover/img:scale-100 transition-transform">
+                                    <i class="fa-solid fa-play text-xs sm:text-sm ml-0.5"></i>
                                 </div>
-                                <span class="text-[11px] font-bold text-white bg-slate-900/90 px-3 py-1 rounded-full border border-slate-700 shadow flex items-center gap-1">
-                                    <i class="fa-brands fa-facebook text-blue-400"></i> Xem Video Gốc Trên Facebook
+                                <span class="text-[10px] sm:text-[11px] font-bold text-white bg-slate-900/90 px-2.5 py-1 rounded-full border border-slate-700 shadow flex items-center gap-1">
+                                    <i class="fa-brands fa-facebook text-blue-400"></i> Xem Video Trên Facebook
                                 </span>
                             </div>
 
@@ -369,35 +381,35 @@
                         </a>
                     </div>
 
-                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs sm:text-sm">
+                    <div class="mt-3 sm:mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs sm:text-sm">
                         <span class="text-slate-400 font-medium">Hình thức quay:</span>
                         <span class="text-blue-400 font-extrabold">100% Video AI tả thực</span>
                     </div>
                 </div>
 
                 <!-- Proof Card 3 (With Real Withdrawal Proof Image) -->
-                <div class="glossy-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-800 flex flex-col justify-between group">
+                <div class="min-w-[85vw] sm:min-w-0 snap-center glossy-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-slate-800 flex flex-col justify-between group">
                     <div>
-                        <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center justify-between mb-2.5 sm:mb-3">
                             <span class="px-2.5 py-1 rounded-lg bg-purple-500/10 text-purple-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">Minh Bạch 100%</span>
                             <i class="fa-solid fa-video text-purple-400 text-lg"></i>
                         </div>
-                        <h3 class="text-lg font-extrabold text-white">Quay Màn Hình Rút Tiền</h3>
-                        <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+                        <h3 class="text-base sm:text-xl font-extrabold text-white">Quay Màn Hình Rút Tiền</h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1.5 sm:mt-2 leading-relaxed">
                             Nói không với ảnh photoshop ảo. Mọi hoa hồng rút về tài khoản ngân hàng đều được quay clip đăng trong nhóm VIP.
                         </p>
 
                         <!-- Screenshot Image Thumbnail Frame with Facebook Video Link -->
-                        <a href="https://www.facebook.com/share/v/1DAGs9kapu/" target="_blank" rel="noopener noreferrer" class="mt-4 block relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-950 shadow-inner group/img hover:border-purple-400 transition-all cursor-pointer" title="Bấm để xem video rút tiền thực tế trên Facebook">
-                            <img src="proof-withdraw.png" alt="Ảnh chụp màn hình rút tiền hoa hồng thực tế từ TikTok Pay" class="w-full h-auto object-cover max-h-56 sm:max-h-64 rounded-xl group-hover/img:scale-105 transition-transform duration-300">
+                        <a href="https://www.facebook.com/share/v/1DAGs9kapu/" target="_blank" rel="noopener noreferrer" class="mt-3 sm:mt-4 block relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-950 shadow-inner group/img hover:border-purple-400 transition-all cursor-pointer" title="Bấm để xem video rút tiền thực tế trên Facebook">
+                            <img src="proof-withdraw.png" alt="Ảnh chụp màn hình rút tiền hoa hồng thực tế từ TikTok Pay" class="w-full h-auto object-cover max-h-48 sm:max-h-64 rounded-xl group-hover/img:scale-105 transition-transform duration-300">
                             
                             <!-- Video Play Overlay Badge -->
                             <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1.5 backdrop-blur-[2px]">
-                                <div class="w-11 h-11 rounded-full bg-purple-500 text-white flex items-center justify-center shadow-lg shadow-purple-500/40 transform scale-90 group-hover/img:scale-100 transition-transform">
-                                    <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-purple-500 text-white flex items-center justify-center shadow-lg shadow-purple-500/40 transform scale-90 group-hover/img:scale-100 transition-transform">
+                                    <i class="fa-solid fa-play text-xs sm:text-sm ml-0.5"></i>
                                 </div>
-                                <span class="text-[11px] font-bold text-white bg-slate-900/90 px-3 py-1 rounded-full border border-slate-700 shadow flex items-center gap-1">
-                                    <i class="fa-brands fa-facebook text-blue-400"></i> Xem Video Gốc Trên Facebook
+                                <span class="text-[10px] sm:text-[11px] font-bold text-white bg-slate-900/90 px-2.5 py-1 rounded-full border border-slate-700 shadow flex items-center gap-1">
+                                    <i class="fa-brands fa-facebook text-blue-400"></i> Xem Video Trên Facebook
                                 </span>
                             </div>
 
@@ -408,102 +420,112 @@
                         </a>
                     </div>
 
-                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs sm:text-sm">
+                    <div class="mt-3 sm:mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs sm:text-sm">
                         <span class="text-slate-400 font-medium">Cập nhật kết quả:</span>
                         <span class="text-purple-400 font-extrabold">Hàng ngày trong nhóm VIP</span>
                     </div>
                 </div>
 
             </div>
-        </div>
-    </section>
-
     <!-- 3. FEATURES BENTO GRID: Zero wall-of-text, focus on benefit micro-tags -->
-    <section id="features" class="py-16 sm:py-24 relative overflow-hidden">
+    <section id="features" class="py-10 sm:py-16 md:py-20 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
                 <span class="text-[11px] sm:text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20">Tính Năng Đột Phá</span>
-                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-3 leading-snug">5 VŨ KHÍ TỰ ĐỘNG HÓA TĂNG NĂNG SUẤT GẤP 10 LẦN</h2>
-                <p class="text-slate-400 text-xs sm:text-sm md:text-base mt-2">Dễ dùng cho người mới, không cần biết viết câu lệnh prompt phức tạp.</p>
+                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2.5 sm:mt-3 leading-snug">5 VŨ KHÍ TỰ ĐỘNG HÓA TĂNG NĂNG SUẤT GẤP 10 LẦN</h2>
+                <p class="text-slate-400 text-xs sm:text-sm md:text-base mt-1.5 sm:mt-2">Dễ dùng cho người mới, không cần biết viết câu lệnh prompt phức tạp.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            <!-- Bento Grid: 2 Columns on Mobile, 3 on Desktop -->
+            <div class="grid grid-cols-2 gap-2.5 sm:gap-5 lg:grid-cols-3">
                 
                 <!-- Feature 1 -->
-                <div class="glossy-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-800">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg mb-4">
-                        <i class="fa-solid fa-link"></i>
+                <div class="glossy-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 md:p-6 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-sm sm:text-lg mb-2.5 sm:mb-4">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+                        <h3 class="text-xs sm:text-base md:text-lg font-bold text-white leading-snug">Quét Link & Bóc Kịch Bản SEO</h3>
+                        <p class="text-[11px] sm:text-sm text-slate-400 mt-1 sm:mt-2 line-clamp-3 sm:line-clamp-none leading-relaxed">Dán 1 link video TikTok ➔ AI viết lại kịch bản mới 100% chuẩn SEO.</p>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-white leading-snug">Quét Link & Bóc Kịch Bản SEO</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-2">Dán 1 link video TikTok top bán chạy ➔ AI viết lại kịch bản mới 100% không lo trùng lặp.</p>
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-[10px] font-bold">⚡ Tự động 100%</span>
-                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[10px] font-medium">Chuẩn SEO TikTok</span>
+                    <div class="mt-2.5 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-[9px] sm:text-[10px] font-bold">⚡ Tự động 100%</span>
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-800 text-slate-300 text-[9px] sm:text-[10px] font-medium">Chuẩn SEO</span>
                     </div>
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="glossy-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-800">
-                    <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-lg mb-4">
-                        <i class="fa-solid fa-shield-halved"></i>
+                <div class="glossy-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 md:p-6 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center text-sm sm:text-lg mb-2.5 sm:mb-4">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-xs sm:text-base md:text-lg font-bold text-white leading-snug">Lọc Từ Cấm TikTok Policy</h3>
+                        <p class="text-[11px] sm:text-sm text-slate-400 mt-1 sm:mt-2 line-clamp-3 sm:line-clamp-none leading-relaxed">Tự động cảnh báo từ vi phạm chính sách tránh bị bóp tương tác.</p>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-white leading-snug">Lọc Từ Cấm TikTok Policy</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-2">Tự động phát hiện và cảnh báo các từ vi phạm chính sách (y tế, phóng đại, cam kết) tránh bị bóp tương tác.</p>
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="px-2.5 py-1 rounded-md bg-red-500/10 text-red-400 text-[10px] font-bold">🛡️ An toàn kênh</span>
-                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[10px] font-medium">0% Dính gậy</span>
+                    <div class="mt-2.5 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-red-500/10 text-red-400 text-[9px] sm:text-[10px] font-bold">🛡️ An toàn kênh</span>
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-800 text-slate-300 text-[9px] sm:text-[10px] font-medium">0% Gậy</span>
                     </div>
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="glossy-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-800">
-                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg mb-4">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <div class="glossy-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 md:p-6 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-sm sm:text-lg mb-2.5 sm:mb-4">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="text-xs sm:text-base md:text-lg font-bold text-white leading-snug">Tự Sinh Prompt Từ 3 Ảnh</h3>
+                        <p class="text-[11px] sm:text-sm text-slate-400 mt-1 sm:mt-2 line-clamp-3 sm:line-clamp-none leading-relaxed">AI tự viết prompt chuẩn, giữ nguyên 100% hình dạng bao bì sản phẩm.</p>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-white leading-snug">Tự Sinh Prompt Chuẩn Từ 3 Ảnh</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-2">Không cần gõ prompt thủ công! AI tự viết câu lệnh chuẩn xác, đảm bảo giữ nguyên 100% bao bì sản phẩm.</p>
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 text-[10px] font-bold">💎 Không vẽ bừa</span>
-                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[10px] font-medium">Đồng nhất ảnh gốc</span>
+                    <div class="mt-2.5 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-blue-500/10 text-blue-400 text-[9px] sm:text-[10px] font-bold">💎 Không vẽ bừa</span>
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-800 text-slate-300 text-[9px] sm:text-[10px] font-medium">Chuẩn ảnh</span>
                     </div>
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="glossy-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-800">
-                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg mb-4">
-                        <i class="fa-solid fa-users-viewfinder"></i>
+                <div class="glossy-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 md:p-6 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-sm sm:text-lg mb-2.5 sm:mb-4">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <h3 class="text-xs sm:text-base md:text-lg font-bold text-white leading-snug">Đa Dạng Tông Quay (ASMR/UGC)</h3>
+                        <p class="text-[11px] sm:text-sm text-slate-400 mt-1 sm:mt-2 line-clamp-3 sm:line-clamp-none leading-relaxed">Đầy đủ style: Thao tác tay ASMR đồ ăn hoặc Người mẫu AI review.</p>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-white leading-snug">Đa Dạng Tông Quay (ASMR & UGC)</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-2">Hỗ trợ đầy đủ phong cách: Thao tác tay ASMR đồ ăn xèo xèo hoặc Người mẫu AI thoa kem thần thái tự nhiên.</p>
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 text-[10px] font-bold">🎬 Đa phong cách</span>
-                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[10px] font-medium">ASMR & UGC AI</span>
+                    <div class="mt-2.5 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-purple-500/10 text-purple-400 text-[9px] sm:text-[10px] font-bold">🎬 Đa phong cách</span>
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-800 text-slate-300 text-[9px] sm:text-[10px] font-medium">ASMR / UGC</span>
                     </div>
                 </div>
 
                 <!-- Feature 5 -->
-                <div class="glossy-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-800">
-                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-4">
-                        <i class="fa-solid fa-layer-group"></i>
+                <div class="glossy-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 md:p-6 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-sm sm:text-lg mb-2.5 sm:mb-4">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-xs sm:text-base md:text-lg font-bold text-white leading-snug">Render 24 Ảnh & 24 Clip 1080p</h3>
+                        <p class="text-[11px] sm:text-sm text-slate-400 mt-1 sm:mt-2 line-clamp-3 sm:line-clamp-none leading-relaxed">Mỗi lần quét tạo 4 bộ đủ nguyên liệu dựng liền 4 video hoàn chỉnh.</p>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-white leading-snug">Render 24 Ảnh 2K & 24 Video 1080p</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-2">Mỗi lần quét tạo 4 bộ (mỗi bộ 6 ảnh + 6 video clip) đủ nguyên liệu dựng liền 4 video bán hàng hoàn chỉnh.</p>
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-400 text-[10px] font-bold">🔥 4 Video/Lần</span>
-                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[10px] font-medium">Full HD 1080p</span>
+                    <div class="mt-2.5 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-amber-500/10 text-amber-400 text-[9px] sm:text-[10px] font-bold">🔥 4 Video/Lần</span>
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-800 text-slate-300 text-[9px] sm:text-[10px] font-medium">Full HD</span>
                     </div>
                 </div>
 
                 <!-- Feature 6 (Bonus Feature) -->
-                <div class="glossy-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-slate-800">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg mb-4">
-                        <i class="fa-solid fa-desktop"></i>
+                <div class="glossy-card rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 md:p-6 border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-sm sm:text-lg mb-2.5 sm:mb-4">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+                        <h3 class="text-xs sm:text-base md:text-lg font-bold text-white leading-snug">Tối Ưu Cho Máy Tính (PC)</h3>
+                        <p class="text-[11px] sm:text-sm text-slate-400 mt-1 sm:mt-2 line-clamp-3 sm:line-clamp-none leading-relaxed">Cài đặt đơn giản trên Windows/Mac, kéo thả thẳng vào CapCut mượt mà.</p>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-white leading-snug">Phần Mềm Tối Ưu Cho Máy Tính (PC)</h3>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-2">Cài đặt đơn giản trên Windows/Mac, tải file zip giải nén kéo thả thẳng vào CapCut mượt mà không tốn công chuyển file.</p>
-                    <div class="mt-4 flex flex-wrap gap-1.5">
-                        <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-[10px] font-bold">💻 Tiện lợi PC</span>
-                        <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 text-[10px] font-medium">Kéo thả CapCut</span>
+                    <div class="mt-2.5 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-[9px] sm:text-[10px] font-bold">💻 Tiện lợi PC</span>
+                        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-slate-800 text-slate-300 text-[9px] sm:text-[10px] font-medium">Kéo thả CapCut</span>
                     </div>
                 </div>
 
@@ -512,65 +534,65 @@
     </section>
 
     <!-- 4. VISUAL COMPARISON (Old Way vs New Way - 2 Box Contrast) -->
-    <section id="comparison" class="py-16 sm:py-20 bg-slate-950 border-t border-slate-800 relative">
+    <section id="comparison" class="py-10 sm:py-16 md:py-20 bg-slate-950 border-t border-slate-800 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+            <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
                 <span class="text-[11px] sm:text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20">So Sánh Năng Suất</span>
-                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-3 leading-snug">1 NGÀY LÀM VIDEO: CÁCH CŨ VS DÙNG TOOL QL</h2>
+                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2.5 sm:mt-3 leading-snug">1 NGÀY LÀM VIDEO: CÁCH CŨ VS DÙNG TOOL QL</h2>
             </div>
 
             <!-- 2-Box Visual Contrast -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 
                 <!-- Old Way Card -->
-                <div class="rounded-3xl p-6 sm:p-8 bg-red-950/20 border border-red-900/40 relative">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-400 font-extrabold text-xs uppercase mb-4">
+                <div class="rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 bg-red-950/20 border border-red-900/40 relative">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-400 font-extrabold text-[11px] sm:text-xs uppercase mb-3 sm:mb-4">
                         <i class="fa-solid fa-xmark"></i> Cách Làm Thủ Công Cũ
                     </div>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-white">Mất 4 - 6 Tiếng / 1 Video</h3>
+                    <h3 class="text-base sm:text-xl font-extrabold text-white">Mất 4 - 6 Tiếng / 1 Video</h3>
                     
-                    <ul class="mt-4 space-y-3 text-xs sm:text-sm text-slate-300 font-medium">
-                        <li class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-circle-xmark text-red-400 mt-1 shrink-0"></i>
+                    <ul class="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-xs sm:text-sm text-slate-300 font-medium">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-xmark text-red-400 mt-1 shrink-0 text-xs"></i>
                             <span>Vắt óc nghĩ kịch bản, gõ prompt mò mẫm cả buổi.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-circle-xmark text-red-400 mt-1 shrink-0"></i>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-xmark text-red-400 mt-1 shrink-0 text-xs"></i>
                             <span>AI vẽ méo mó bao bì, mặt nhân vật nhảy liên tục.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-circle-xmark text-red-400 mt-1 shrink-0"></i>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-xmark text-red-400 mt-1 shrink-0 text-xs"></i>
                             <span>Dễ dính từ cấm bị TikTok bóp tương tác hoặc cấm kênh.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-circle-xmark text-red-400 mt-1 shrink-0"></i>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-xmark text-red-400 mt-1 shrink-0 text-xs"></i>
                             <span>Tốn hàng chục ngàn tiền mua credit AI lẻ mỗi ngày.</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- New Way Card (Tool QL) -->
-                <div class="rounded-3xl p-6 sm:p-8 bg-emerald-950/30 border-2 border-emerald-500/60 relative shadow-xl shadow-emerald-500/10">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500 text-slate-950 font-extrabold text-xs uppercase mb-4">
+                <div class="rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 bg-emerald-950/30 border-2 border-emerald-500/60 relative shadow-xl shadow-emerald-500/10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500 text-slate-950 font-extrabold text-[11px] sm:text-xs uppercase mb-3 sm:mb-4">
                         <i class="fa-solid fa-check"></i> Dùng Tool QL Social Studio
                     </div>
-                    <h3 class="text-lg sm:text-xl font-extrabold text-white">Chỉ 10 - 15 Phút / 4 Video</h3>
+                    <h3 class="text-base sm:text-xl font-extrabold text-white">Chỉ 10 - 15 Phút / 4 Video</h3>
                     
-                    <ul class="mt-4 space-y-3 text-xs sm:text-sm text-slate-200 font-medium">
-                        <li class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 shrink-0"></i>
+                    <ul class="mt-3 sm:mt-4 space-y-2 sm:space-y-3 text-xs sm:text-sm text-slate-200 font-medium">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 shrink-0 text-xs"></i>
                             <span>Dán 1 link + 3 ảnh ➔ AI tự sinh kịch bản & 24 clip 1080p.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 shrink-0"></i>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 shrink-0 text-xs"></i>
                             <span>Đồng nhất 100% hình ảnh từ ảnh chụp thực tế.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 shrink-0"></i>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 shrink-0 text-xs"></i>
                             <span>Bộ lọc từ cấm policy tự động bảo vệ an toàn kênh.</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 shrink-0"></i>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-400 mt-1 shrink-0 text-xs"></i>
                             <span><strong>1.099K Dùng Vĩnh Viễn</strong> trọn đời, không lo chi phí gia hạn.</span>
                         </li>
                     </ul>
@@ -581,84 +603,84 @@
     </section>
 
     <!-- Pricing Offer & 4 VIP Bonuses Section -->
-    <section id="pricing" class="py-16 sm:py-24 relative overflow-hidden">
+    <section id="pricing" class="py-10 sm:py-16 md:py-20 relative overflow-hidden">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
                 <span class="text-[11px] sm:text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20">Ưu Đãi Trọn Đời Duy Nhất Hôm Nay</span>
-                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-3 leading-snug">SỞ HỮU TOOL VĨNH VIỄN + BỘ 4 ĐẶC QUYỀN VIP</h2>
-                <p class="text-slate-400 text-xs sm:text-sm md:text-base mt-2">Đầu tư đúng một lần – Tự động hóa công việc Affiliate trọn đời!</p>
+                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2.5 sm:mt-3 leading-snug">SỞ HỮU TOOL VĨNH VIỄN + BỘ 4 ĐẶC QUYỀN VIP</h2>
+                <p class="text-slate-400 text-xs sm:text-sm md:text-base mt-1.5 sm:mt-2">Đầu tư đúng một lần – Tự động hóa công việc Affiliate trọn đời!</p>
             </div>
 
             <!-- Main Offer Card -->
-            <div class="glossy-card rounded-2xl sm:rounded-3xl border-2 border-emerald-500 p-5 sm:p-8 md:p-10 shadow-2xl shadow-emerald-500/10 relative overflow-hidden">
+            <div class="glossy-card rounded-2xl sm:rounded-3xl border-2 border-emerald-500 p-4 sm:p-7 md:p-9 shadow-2xl shadow-emerald-500/10 relative overflow-hidden">
                 <div class="absolute -right-12 -top-12 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 pb-6 sm:pb-8 border-b border-slate-800 text-center md:text-left">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-8 pb-5 sm:pb-7 border-b border-slate-800 text-center md:text-left">
                     <div>
                         <span class="px-3 py-1 rounded-full bg-emerald-500 text-slate-950 font-bold text-[10px] sm:text-[11px] uppercase tracking-wider inline-block">
                             BẢN QUYỀN TRỌN ĐỜI
                         </span>
-                        <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mt-3 leading-snug">Phần Mềm QL Social Studio (PC)</h3>
+                        <h3 class="text-lg sm:text-2xl md:text-3xl font-extrabold text-white mt-2 sm:mt-3 leading-snug">Phần Mềm QL Social Studio (PC)</h3>
                         <p class="text-xs sm:text-sm text-slate-400 mt-1">Sử dụng trên máy tính • Tự động hóa 100% video AI Affiliate</p>
                     </div>
 
                     <div class="text-center md:text-right">
                         <span class="text-xs sm:text-sm text-slate-500 line-through block font-medium">Giá gốc: 1.500.000đ</span>
-                        <div class="flex items-baseline justify-center md:justify-end gap-1 mt-1">
-                            <span class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-emerald-400">1.099.000</span>
+                        <div class="flex items-baseline justify-center md:justify-end gap-1 mt-0.5 sm:mt-1">
+                            <span class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-emerald-400">1.099.000</span>
                             <span class="text-base sm:text-lg font-bold text-emerald-400">đ</span>
                         </div>
-                        <span class="text-[11px] sm:text-xs text-amber-400 font-semibold block mt-1">⚡ Thanh toán 1 lần - Sử dụng vĩnh viễn</span>
+                        <span class="text-[11px] sm:text-xs text-amber-400 font-semibold block mt-0.5 sm:mt-1">⚡ Thanh toán 1 lần - Sử dụng vĩnh viễn</span>
                     </div>
                 </div>
 
-                <!-- VIP Bonuses List -->
-                <div class="mt-6 sm:mt-8 space-y-4">
+                <!-- VIP Bonuses List: Compact 2x2 Grid on Mobile -->
+                <div class="mt-5 sm:mt-8 space-y-3 sm:space-y-4">
                     <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider flex items-center justify-center md:justify-start gap-2">
                         <i class="fa-solid fa-gift text-emerald-400"></i> TRỌN BỘ 4 QUÀ TẶNG KÈM THEO KHI MUA TOOL HÔM NAY:
                     </h4>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-1 sm:pt-2">
+                    <div class="grid grid-cols-2 gap-2 sm:gap-4 pt-1">
                         <!-- Bonus 1 -->
-                        <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
-                            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">1</div>
+                        <div class="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start gap-2 sm:gap-3">
+                            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">1</div>
                             <div>
-                                <h5 class="text-xs font-bold text-white uppercase tracking-wide">Update Trọn Đời Miễn Phí</h5>
-                                <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5 leading-relaxed">Công cụ được tác giả nâng cấp, bổ sung tính năng mới liên tục mà không tốn thêm chi phí.</p>
+                                <h5 class="text-[11px] sm:text-xs font-bold text-white uppercase tracking-wide">Update Trọn Đời</h5>
+                                <p class="text-[10px] sm:text-xs text-slate-400 mt-0.5 leading-tight sm:leading-relaxed">Bổ sung tính năng mới liên tục miễn phí.</p>
                             </div>
                         </div>
 
                         <!-- Bonus 2 -->
-                        <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
-                            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">2</div>
+                        <div class="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start gap-2 sm:gap-3">
+                            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">2</div>
                             <div>
-                                <h5 class="text-xs font-bold text-white uppercase tracking-wide">Nhóm VIP Support 1:1</h5>
-                                <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5 leading-relaxed">Hướng dẫn chi tiết từ khâu cài đặt PC đến mẹo dựng CapCut "chuẩn ăn tiền" cắn xu hướng.</p>
+                                <h5 class="text-[11px] sm:text-xs font-bold text-white uppercase tracking-wide">VIP Support 1:1</h5>
+                                <p class="text-[10px] sm:text-xs text-slate-400 mt-0.5 leading-tight sm:leading-relaxed">Hỗ trợ cài đặt PC và mẹo dựng CapCut.</p>
                             </div>
                         </div>
 
                         <!-- Bonus 3 -->
-                        <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
-                            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">3</div>
+                        <div class="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start gap-2 sm:gap-3">
+                            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">3</div>
                             <div>
-                                <h5 class="text-xs font-bold text-white uppercase tracking-wide">Nhóm VIP Share Sản Phẩm WIN</h5>
-                                <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5 leading-relaxed">Cập nhật danh sách các sản phẩm đang nổ đơn mạnh nhất để làm theo là có chuyển đổi ngay.</p>
+                                <h5 class="text-[11px] sm:text-xs font-bold text-white uppercase tracking-wide">Share Sp WIN</h5>
+                                <p class="text-[10px] sm:text-xs text-slate-400 mt-0.5 leading-tight sm:leading-relaxed">Cập nhật sản phẩm nổ đơn mạnh nhất.</p>
                             </div>
                         </div>
 
                         <!-- Bonus 4 -->
-                        <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
-                            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">4</div>
+                        <div class="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/80 border border-slate-800 flex items-start gap-2 sm:gap-3">
+                            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">4</div>
                             <div>
-                                <h5 class="text-xs font-bold text-white uppercase tracking-wide">Bí Kíp Video GMV Max</h5>
-                                <p class="text-[11px] sm:text-xs text-slate-400 mt-0.5 leading-relaxed">Chia sẻ kỹ thuật tạo video đạt chuẩn để được các Shop lựa chọn chạy quảng cáo kéo doanh thu khủng.</p>
+                                <h5 class="text-[11px] sm:text-xs font-bold text-white uppercase tracking-wide">Bí Kíp GMV Max</h5>
+                                <p class="text-[10px] sm:text-xs text-slate-400 mt-0.5 leading-tight sm:leading-relaxed">Kỹ thuật tạo video chuẩn shop chạy ads.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Call To Action -->
-                <div class="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-slate-800 text-center">
+                <div class="mt-5 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-800 text-center">
                     <a href="#order-form" class="inline-flex items-center justify-center gap-2 sm:gap-3 w-full py-3.5 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-slate-950 font-extrabold text-xs sm:text-base shadow-xl shadow-emerald-500/20 transition-all transform hover:scale-[1.02] active:scale-95 uppercase tracking-wider leading-snug">
                         <i class="fa-solid fa-cart-shopping shrink-0"></i>
                         <span>ĐĂNG KÝ SỞ HỮU TOOL 1.099K NGAY</span>
@@ -669,54 +691,54 @@
     </section>
 
     <!-- Order Form Section -->
-    <section id="order-form" class="py-16 sm:py-20 bg-slate-950 border-t border-slate-800 relative">
+    <section id="order-form" class="py-10 sm:py-16 md:py-20 bg-slate-950 border-t border-slate-800 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
                 <span class="text-[11px] sm:text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20">Kích Hoạt Tự Động</span>
-                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-3 leading-snug">ĐIỀN THÔNG TIN ĐỂ KÍCH HOẠT TOOL VÀO NHÓM VIP</h2>
-                <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">Vui lòng điền đúng SĐT/Zalo để hệ thống xác nhận và mời bạn vào Nhóm VIP Support ngay.</p>
+                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2.5 sm:mt-3 leading-snug">ĐIỀN THÔNG TIN ĐỂ KÍCH HOẠT TOOL VÀO NHÓM VIP</h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1.5 sm:mt-2 leading-relaxed">Vui lòng điền đúng SĐT/Zalo để hệ thống xác nhận và mời bạn vào Nhóm VIP Support ngay.</p>
             </div>
 
             <!-- Form Container -->
-            <div class="glossy-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 border border-slate-800 shadow-2xl">
-                <form id="checkout-form" onsubmit="handleFormSubmit(event)" class="space-y-4 sm:space-y-6">
+            <div class="glossy-card rounded-2xl sm:rounded-3xl p-4 sm:p-7 md:p-9 border border-slate-800 shadow-2xl">
+                <form id="checkout-form" onsubmit="handleFormSubmit(event)" class="space-y-3.5 sm:space-y-5">
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-5">
                         <!-- Full Name -->
                         <div>
-                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                                 Họ và Tên của bạn <span class="text-red-500">*</span>
                             </label>
-                            <input type="text" id="cust-name" required placeholder="Nguyễn Văn A" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
+                            <input type="text" id="cust-name" required placeholder="Nguyễn Văn A" class="w-full px-3.5 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
                         </div>
 
                         <!-- Phone / Zalo -->
                         <div>
-                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                                 Số Điện Thoại (Zalo nhận tài nguyên) <span class="text-red-500">*</span>
                             </label>
-                            <input type="tel" id="cust-phone" required pattern="[0-9]{10,11}" placeholder="09xxxxxxx" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
+                            <input type="tel" id="cust-phone" required pattern="[0-9]{10,11}" placeholder="09xxxxxxx" class="w-full px-3.5 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
                         </div>
                     </div>
 
                     <!-- Email -->
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
                             Email nhận link cài đặt phần mềm <span class="text-red-500">*</span>
                         </label>
-                        <input type="email" id="cust-email" required placeholder="ban@gmail.com" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
+                        <input type="email" id="cust-email" required placeholder="ban@gmail.com" class="w-full px-3.5 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
                     </div>
 
                     <!-- Referral / License Key of Inviter (Affiliate Ref) -->
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                             <span>Mã Giảm Giá / License Key (Nếu có)</span>
                             <span class="text-amber-400 font-semibold text-[11px] flex items-center gap-1">
                                 <i class="fa-solid fa-gift"></i> Giảm ngay 100.000đ
                             </span>
                         </label>
                         <div class="relative flex items-center">
-                            <input type="text" id="cust-ref" oninput="onLicenseKeyInputChange()" placeholder="Ví dụ: QL-8F29A (Nhập License Key nhận ưu đãi 100k)" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 uppercase font-mono transition-all pr-36">
+                            <input type="text" id="cust-ref" oninput="onLicenseKeyInputChange()" placeholder="Ví dụ: QL-8F29A (Nhập key nhận ưu đãi)" class="w-full px-3.5 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 uppercase font-mono transition-all pr-36">
                             <button type="button" id="btn-apply-key" onclick="verifyLicenseKey(true)" class="absolute right-1.5 top-1/2 -translate-y-1/2 px-3 sm:px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-amber-400 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0">
                                 <span>Áp Dụng</span>
                             </button>
@@ -724,7 +746,7 @@
                     </div>
 
                     <!-- Selected Package Dynamic Price Card -->
-                    <div id="package-price-box" class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs sm:text-sm transition-all">
+                    <div id="package-price-box" class="p-3.5 sm:p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs sm:text-sm transition-all">
                         <div>
                             <span class="text-slate-300 font-semibold block">Gói đăng ký: <strong class="text-emerald-400 font-bold">Bản Quyền Tool QL Social Studio (PC)</strong></span>
                             <span id="ref-discount-note" class="hidden text-[11px] text-amber-400 font-semibold">⚡ Đã áp dụng ưu đãi Giảm 100.000đ từ Người Giới Thiệu</span>
@@ -746,54 +768,54 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-16 sm:py-20 relative overflow-hidden">
+    <section class="py-10 sm:py-16 md:py-20 relative overflow-hidden">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+            <div class="text-center max-w-2xl mx-auto mb-6 sm:mb-10">
                 <span class="text-[11px] sm:text-xs font-bold text-emerald-400 uppercase tracking-widest bg-emerald-500/10 px-3.5 py-1.5 rounded-full border border-emerald-500/20">Giải Đáp Thắc Mắc</span>
-                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-3 leading-snug">CÂU HỎI THƯỜNG GẶP (FAQ)</h2>
+                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2.5 sm:mt-3 leading-snug">CÂU HỎI THƯỜNG GẶP (FAQ)</h2>
             </div>
 
-            <div class="space-y-3 sm:space-y-4">
+            <div class="space-y-2.5 sm:space-y-4">
                 <!-- FAQ 1 -->
                 <div class="glossy-card rounded-xl sm:rounded-2xl border border-slate-800 overflow-hidden">
-                    <button onclick="toggleFAQ(1)" class="w-full p-4 sm:p-5 text-left font-bold text-white text-xs sm:text-base flex items-center justify-between gap-3">
+                    <button onclick="toggleFAQ(1)" class="w-full p-3.5 sm:p-5 text-left font-bold text-white text-xs sm:text-base flex items-center justify-between gap-3">
                         <span>1. Tool sử dụng trên thiết bị nào? Cấu hình máy tính ra sao?</span>
                         <i id="faq-icon-1" class="fa-solid fa-chevron-down text-emerald-400 transition-transform shrink-0"></i>
                     </button>
-                    <div id="faq-ans-1" class="hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+                    <div id="faq-ans-1" class="hidden px-3.5 pb-3.5 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
                         Dạ phần mềm được thiết kế chạy trực tiếp mượt mà trên <strong class="text-slate-200 font-semibold">Máy tính (PC hoặc Laptop Windows/Mac)</strong>. Cấu hình máy tính văn phòng bình thường đều chạy tốt vì toàn bộ tiến trình render nặng được kết nối xử lý qua hệ thống đám mây API.
                     </div>
                 </div>
 
                 <!-- FAQ 2 -->
                 <div class="glossy-card rounded-xl sm:rounded-2xl border border-slate-800 overflow-hidden">
-                    <button onclick="toggleFAQ(2)" class="w-full p-4 sm:p-5 text-left font-bold text-white text-xs sm:text-base flex items-center justify-between gap-3">
+                    <button onclick="toggleFAQ(2)" class="w-full p-3.5 sm:p-5 text-left font-bold text-white text-xs sm:text-base flex items-center justify-between gap-3">
                         <span>2. Tôi là người mới chưa biết làm video AI hay viết prompt có làm được không?</span>
                         <i id="faq-icon-2" class="fa-solid fa-chevron-down text-emerald-400 transition-transform shrink-0"></i>
                     </button>
-                    <div id="faq-ans-2" class="hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+                    <div id="faq-ans-2" class="hidden px-3.5 pb-3.5 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
                         Dạ hoàn toàn làm được dễ dàng! Tool được tự động hóa 100%: Bạn chỉ cần dán 1 link video TikTok + chọn 3 ảnh sản phẩm. Tool tự bóc kịch bản và tự sinh prompt chuẩn xác mà bạn không cần gõ câu lệnh nào. Ngoài ra có nhóm VIP Support 1:1 hướng dẫn chi tiết từng bước.
                     </div>
                 </div>
 
                 <!-- FAQ 3 -->
                 <div class="glossy-card rounded-xl sm:rounded-2xl border border-slate-800 overflow-hidden">
-                    <button onclick="toggleFAQ(3)" class="w-full p-4 sm:p-5 text-left font-bold text-white text-xs sm:text-base flex items-center justify-between gap-3">
+                    <button onclick="toggleFAQ(3)" class="w-full p-3.5 sm:p-5 text-left font-bold text-white text-xs sm:text-base flex items-center justify-between gap-3">
                         <span>3. Mua Tool 1.099k xong có bị phát sinh thêm phí hàng tháng không?</span>
                         <i id="faq-icon-3" class="fa-solid fa-chevron-down text-emerald-400 transition-transform shrink-0"></i>
                     </button>
-                    <div id="faq-ans-3" class="hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+                    <div id="faq-ans-3" class="hidden px-3.5 pb-3.5 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
                         Dạ KHÔNG ạ! Mức giá 1.099.000đ là bản quyền <strong class="text-slate-200 font-semibold">sử dụng vĩnh viễn trọn đời</strong>. Tác giả nâng cấp hay cập nhật tính năng mới trong tương lai bạn đều được nhận hoàn toàn miễn phí.
                     </div>
                 </div>
 
                 <!-- FAQ 4 -->
                 <div class="glossy-card rounded-xl sm:rounded-2xl border border-slate-800 overflow-hidden">
-                    <button onclick="toggleFAQ(4)" class="w-full p-4 sm:p-5 text-left font-bold text-white text-xs sm:text-base flex items-center justify-between gap-3">
+                    <button onclick="toggleFAQ(4)" class="w-full p-3.5 sm:p-5 text-left font-bold text-white text-xs sm:text-base flex items-center justify-between gap-3">
                         <span>4. Nhóm Share Sản Phẩm WIN và Support CapCut hoạt động ra sao?</span>
                         <i id="faq-icon-4" class="fa-solid fa-chevron-down text-emerald-400 transition-transform shrink-0"></i>
                     </button>
-                    <div id="faq-ans-4" class="hidden px-4 pb-4 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
+                    <div id="faq-ans-4" class="hidden px-3.5 pb-3.5 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
                         Sau khi kích hoạt Tool, bạn sẽ được tham gia 2 nhóm Zalo VIP:
                         <br>• <strong class="text-slate-200 font-semibold">Nhóm Support:</strong> Giải đáp thắc mắc 1:1, hướng dẫn mẹo ghép nhạc, căn chỉnh timeline trên CapCut sao cho cắn xu hướng.
                         <br>• <strong class="text-slate-200 font-semibold">Nhóm Sp Win:</strong> Cập nhật các sản phẩm đang có doanh thu cao thực tế trên TikTok Shop/Shopee để bạn làm theo là có đơn ngay.
@@ -804,7 +826,7 @@
     </section>
 
     <!-- Affiliate Partner Program Section (Kiếm 200k - 300k / Đơn) -->
-    <section id="affiliate" class="py-16 sm:py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-t border-slate-800 relative overflow-hidden">
+    <section id="affiliate" class="py-10 sm:py-16 md:py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-t border-slate-800 relative overflow-hidden">
         <!-- Ambient Glow -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[400px] pointer-events-none -z-10 opacity-20">
             <div class="absolute top-0 right-1/4 w-[320px] h-[320px] rounded-full bg-amber-500 blur-[120px]"></div>
@@ -812,31 +834,31 @@
         </div>
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+            <div class="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
                 <span class="text-[11px] sm:text-xs font-extrabold text-amber-400 uppercase tracking-widest bg-amber-500/10 px-4 py-1.5 rounded-full border border-amber-500/30 inline-flex items-center gap-1.5">
-                    <i class="fa-solid fa-handshake text-xs"></i> QL Affiliate Partner - Mở Rộng Cho Tất Cả Mọi Người
+                    <i class="fa-solid fa-handshake text-xs"></i> QL Affiliate Partner - Mở Rộng Cho Mọi Người
                 </span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-3 leading-snug font-display">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2.5 sm:mt-3 leading-snug font-display">
                     KIẾM 200.000đ – 300.000đ / MỖI ĐƠN HÀNG <br class="hidden sm:inline">
                     <span class="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">CHƯƠNG TRÌNH ĐỐI TÁC HOA HỒNG CAO</span>
                 </h2>
-                <p class="text-slate-400 text-xs sm:text-sm md:text-base mt-2 max-w-2xl mx-auto leading-relaxed">
+                <p class="text-slate-400 text-xs sm:text-sm md:text-base mt-1.5 sm:mt-2 max-w-2xl mx-auto leading-relaxed">
                     Dễ dàng kiếm thêm thu nhập thụ động! Dù bạn đã mua Tool hay chưa mua, chỉ cần giới thiệu là có tiền hoa hồng chuyển thẳng về tài khoản.
                 </p>
             </div>
 
             <!-- 2 Comparison Cards: Thành Viên Đã Mua Tool vs Người Chưa Sử Dụng -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-10 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6 mb-6 sm:mb-8 max-w-5xl mx-auto">
                 
                 <!-- Box 1: Thành Viên Đã Mua Tool (License Key) -->
-                <div class="p-5 sm:p-7 rounded-2xl bg-amber-950/20 border-2 border-amber-500/60 text-left relative space-y-3 shadow-xl shadow-amber-500/10 flex flex-col justify-between">
+                <div class="p-4 sm:p-6 md:p-7 rounded-2xl bg-amber-950/20 border-2 border-amber-500/60 text-left relative space-y-2.5 sm:space-y-3 shadow-xl shadow-amber-500/10 flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-extrabold text-xs uppercase tracking-wider font-mono">1. Đã Mua Tool (Có License Key)</span>
-                            <i class="fa-solid fa-crown text-amber-400 text-xl"></i>
+                        <div class="flex items-center justify-between mb-2.5 sm:mb-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-extrabold text-[11px] sm:text-xs uppercase tracking-wider font-mono">1. Đã Mua Tool (Có License Key)</span>
+                            <i class="fa-solid fa-crown text-amber-400 text-lg sm:text-xl"></i>
                         </div>
-                        <h4 class="text-base sm:text-lg font-bold text-white">Không cần đăng ký lại - Dùng ngay License Key</h4>
-                        <ul class="mt-3 space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        <h4 class="text-sm sm:text-base md:text-lg font-bold text-white">Không cần đăng ký lại - Dùng ngay License Key</h4>
+                        <ul class="mt-2.5 sm:mt-3 space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
                             <li class="flex items-start gap-2">
                                 <i class="fa-solid fa-circle-check text-amber-400 mt-1 shrink-0 text-xs"></i>
                                 <span>Gửi link web <strong class="text-white">https://ql-social-studio-landing.vercel.app</strong> kèm mã <strong class="text-amber-300 font-mono">License Key</strong> của bạn cho khách.</span>
@@ -851,20 +873,20 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="pt-3 border-t border-amber-500/20 text-[11px] text-amber-400/90 font-medium">
+                    <div class="pt-2.5 sm:pt-3 border-t border-amber-500/20 text-[11px] text-amber-400/90 font-medium">
                         💡 <i>Bạn chỉ cần bảo bạn bè nhập License Key vào ô "Mã Giảm Giá" khi đặt hàng.</i>
                     </div>
                 </div>
 
                 <!-- Box 2: Người Chưa Sử Dụng (Đăng Ký Làm Affiliate Tự Do) -->
-                <div class="p-5 sm:p-7 rounded-2xl bg-slate-900/90 border border-slate-700 text-left relative space-y-3 flex flex-col justify-between">
+                <div class="p-4 sm:p-6 md:p-7 rounded-2xl bg-slate-900/90 border border-slate-700 text-left relative space-y-2.5 sm:space-y-3 flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="px-2.5 py-1 rounded-lg bg-blue-500/20 text-blue-400 font-extrabold text-xs uppercase tracking-wider font-mono">2. Người Chưa Dùng Tool (Affiliate Tự Do)</span>
-                            <i class="fa-solid fa-users text-blue-400 text-xl"></i>
+                        <div class="flex items-center justify-between mb-2.5 sm:mb-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-blue-500/20 text-blue-400 font-extrabold text-[11px] sm:text-xs uppercase tracking-wider font-mono">2. Người Chưa Dùng Tool (Affiliate Tự Do)</span>
+                            <i class="fa-solid fa-users text-blue-400 text-lg sm:text-xl"></i>
                         </div>
-                        <h4 class="text-base sm:text-lg font-bold text-white">Đăng ký thông tin nhận Link Affiliate riêng</h4>
-                        <ul class="mt-3 space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                        <h4 class="text-sm sm:text-base md:text-lg font-bold text-white">Đăng ký thông tin nhận Link Affiliate riêng</h4>
+                        <ul class="mt-2.5 sm:mt-3 space-y-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
                             <li class="flex items-start gap-2">
                                 <i class="fa-solid fa-circle-check text-blue-400 mt-1 shrink-0 text-xs"></i>
                                 <span>Điền form bên dưới: <strong class="text-slate-100">Họ Tên + STK + Ngân Hàng</strong> để nhận Link riêng.</span>
@@ -879,72 +901,78 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="pt-3 border-t border-slate-800 text-[11px] text-blue-400/90 font-medium">
+                    <div class="pt-2.5 sm:pt-3 border-t border-slate-800 text-[11px] text-blue-400/90 font-medium">
                         💡 <i>Không cần mua tool trước, ai cũng có thể đăng ký làm đối tác ngay bên dưới!</i>
                     </div>
                 </div>
 
             </div>
 
-            <!-- 3-Tier Commission Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12">
+            <!-- 3-Tier Commission: Swipeable Carousel on Mobile, Grid on Desktop -->
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-3 md:grid md:grid-cols-3 md:gap-5 mb-8 sm:mb-10 no-scrollbar">
                 <!-- Tier 1 -->
-                <div class="glossy-card rounded-2xl p-5 sm:p-6 border border-slate-800 text-left relative group hover:border-amber-500/40 transition-all">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 font-extrabold text-[11px] uppercase tracking-wider font-mono">Level 1 (1 - 4 Đơn)</span>
-                        <i class="fa-solid fa-seedling text-emerald-400 text-lg"></i>
+                <div class="min-w-[78vw] sm:min-w-0 snap-center glossy-card rounded-2xl p-4 sm:p-5 md:p-6 border border-slate-800 text-left relative group hover:border-amber-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-2 sm:mb-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider font-mono">Level 1 (1 - 4 Đơn)</span>
+                            <i class="fa-solid fa-seedling text-emerald-400 text-base sm:text-lg"></i>
+                        </div>
+                        <div class="text-xl sm:text-2xl md:text-3xl font-black text-white font-display">
+                            200.000đ <span class="text-xs text-slate-400 font-normal">/ đơn</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1.5 sm:mt-2 leading-relaxed">
+                            Nhận tiền ngay từ đơn đầu tiên giới thiệu bạn bè hoặc người theo dõi mua Tool.
+                        </p>
                     </div>
-                    <div class="text-2xl sm:text-3xl font-black text-white font-display">
-                        200.000đ <span class="text-xs text-slate-400 font-normal">/ đơn</span>
-                    </div>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                        Nhận tiền ngay từ đơn đầu tiên giới thiệu bạn bè hoặc người theo dõi mua Tool.
-                    </p>
-                    <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-emerald-400 font-semibold flex items-center gap-1.5">
+                    <div class="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-slate-800/80 text-[11px] text-emerald-400 font-semibold flex items-center gap-1.5">
                         <i class="fa-solid fa-check text-xs"></i> Rút tiền nhanh không giới hạn
                     </div>
                 </div>
 
                 <!-- Tier 2 -->
-                <div class="glossy-card rounded-2xl p-5 sm:p-6 border-2 border-amber-500/60 bg-amber-950/20 text-left relative group shadow-xl shadow-amber-500/10">
+                <div class="min-w-[78vw] sm:min-w-0 snap-center glossy-card rounded-2xl p-4 sm:p-5 md:p-6 border-2 border-amber-500/60 bg-amber-950/20 text-left relative group shadow-xl shadow-amber-500/10 flex flex-col justify-between">
                     <div class="absolute -top-3 right-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow">
                         Phổ biến nhất
                     </div>
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-extrabold text-[11px] uppercase tracking-wider font-mono">Level 2 (5 - 19 Đơn)</span>
-                        <i class="fa-solid fa-medal text-amber-400 text-lg"></i>
+                    <div>
+                        <div class="flex items-center justify-between mb-2 sm:mb-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider font-mono">Level 2 (5 - 19 Đơn)</span>
+                            <i class="fa-solid fa-medal text-amber-400 text-base sm:text-lg"></i>
+                        </div>
+                        <div class="text-xl sm:text-2xl md:text-3xl font-black text-amber-400 font-display">
+                            250.000đ <span class="text-xs text-slate-400 font-normal">/ đơn</span>
+                        </div>
+                        <p class="text-xs text-slate-300 mt-1.5 sm:mt-2 leading-relaxed">
+                            Tăng mức hoa hồng + <strong class="text-amber-300">Thưởng nóng 200.000đ</strong> khi cán mốc 5 đơn hàng.
+                        </p>
                     </div>
-                    <div class="text-2xl sm:text-3xl font-black text-amber-400 font-display">
-                        250.000đ <span class="text-xs text-slate-400 font-normal">/ đơn</span>
-                    </div>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                        Tăng mức hoa hồng + <strong class="text-amber-300">Thưởng nóng 200.000đ</strong> khi cán mốc 5 đơn hàng.
-                    </p>
-                    <div class="mt-4 pt-3 border-t border-amber-500/20 text-[11px] text-amber-400 font-semibold flex items-center gap-1.5">
+                    <div class="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-amber-500/20 text-[11px] text-amber-400 font-semibold flex items-center gap-1.5">
                         <i class="fa-solid fa-gift text-xs"></i> Thưởng nóng Milestone + Ưu tiên hỗ trợ
                     </div>
                 </div>
 
                 <!-- Tier 3 -->
-                <div class="glossy-card rounded-2xl p-5 sm:p-6 border border-slate-800 text-left relative group hover:border-emerald-500/40 transition-all">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 font-extrabold text-[11px] uppercase tracking-wider font-mono">Level 3 (Từ 20 Đơn)</span>
-                        <i class="fa-solid fa-crown text-emerald-400 text-lg"></i>
+                <div class="min-w-[78vw] sm:min-w-0 snap-center glossy-card rounded-2xl p-4 sm:p-5 md:p-6 border border-slate-800 text-left relative group hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-2 sm:mb-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider font-mono">Level 3 (Từ 20 Đơn)</span>
+                            <i class="fa-solid fa-crown text-emerald-400 text-base sm:text-lg"></i>
+                        </div>
+                        <div class="text-xl sm:text-2xl md:text-3xl font-black text-emerald-400 font-display">
+                            300.000đ <span class="text-xs text-slate-400 font-normal">/ đơn</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1.5 sm:mt-2 leading-relaxed">
+                            Mức hoa hồng kịch khung + <strong class="text-emerald-300">Thưởng nóng 1.000.000đ</strong> khi cán mốc 20 đơn.
+                        </p>
                     </div>
-                    <div class="text-2xl sm:text-3xl font-black text-emerald-400 font-display">
-                        300.000đ <span class="text-xs text-slate-400 font-normal">/ đơn</span>
-                    </div>
-                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                        Mức hoa hồng kịch khung + <strong class="text-emerald-300">Thưởng nóng 1.000.000đ</strong> khi cán mốc 20 đơn.
-                    </p>
-                    <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-emerald-400 font-semibold flex items-center gap-1.5">
+                    <div class="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-slate-800/80 text-[11px] text-emerald-400 font-semibold flex items-center gap-1.5">
                         <i class="fa-solid fa-trophy text-xs"></i> Vinh danh VIP Partner + Đối soát 24/7
                     </div>
                 </div>
             </div>
 
             <!-- Interactive Registration Form for New Affiliates -->
-            <div class="glossy-card rounded-2xl sm:rounded-3xl border border-slate-700/80 p-5 sm:p-8 max-w-3xl mx-auto shadow-2xl">
+            <div class="glossy-card rounded-2xl sm:rounded-3xl border border-slate-700/80 p-4 sm:p-7 md:p-8 max-w-3xl mx-auto shadow-2xl">
                 <div class="flex items-center gap-2.5 mb-2">
                     <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">
                         <i class="fa-solid fa-id-card"></i>
