@@ -145,12 +145,15 @@
             </a>
 
             <!-- Desktop Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-300">
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-300">
                 <a href="#how-it-works" class="hover:text-brand-green transition-colors">Quy Trình 3 Bước</a>
                 <a href="#proof" class="hover:text-brand-green transition-colors">Kết Quả Thật</a>
                 <a href="#features" class="hover:text-brand-green transition-colors">Tính Năng</a>
                 <a href="#comparison" class="hover:text-brand-green transition-colors">So Sánh</a>
                 <a href="#pricing" class="hover:text-brand-green transition-colors">Bảng Giá 1.099K</a>
+                <a href="#affiliate" class="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1.5 font-bold">
+                    <i class="fa-solid fa-coins text-xs"></i> Kiếm Tiền Affiliate
+                </a>
             </nav>
 
             <!-- Header Action Buttons -->
@@ -704,6 +707,22 @@
                         <input type="email" id="cust-email" required placeholder="ban@gmail.com" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
                     </div>
 
+                    <!-- Referral / License Key of Inviter (Affiliate Ref) -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
+                            <span>Mã Giới Thiệu / License Key Bạn Bè (Nếu có)</span>
+                            <span class="text-amber-400 font-semibold text-[11px] flex items-center gap-1">
+                                <i class="fa-solid fa-gift"></i> Tự động ghi nhận đối tác
+                            </span>
+                        </label>
+                        <div class="relative">
+                            <input type="text" id="cust-ref" placeholder="Ví dụ: QL-8F29A (Bỏ trống nếu mua trực tiếp)" class="w-full px-4 py-3 sm:py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-base sm:text-sm focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 uppercase font-mono transition-all pr-24">
+                            <span id="ref-applied-badge" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-md font-bold">
+                                ✓ Đã áp dụng Ref
+                            </span>
+                        </div>
+                    </div>
+
                     <!-- Selected Package Note -->
                     <div class="p-3.5 sm:p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between text-xs sm:text-sm">
                         <span class="text-slate-300 font-semibold">Gói đăng ký: <strong class="text-emerald-400 font-bold">Bản Quyền Tool QL Social Studio (PC)</strong></span>
@@ -775,6 +794,136 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Affiliate Partner Program Section (Kiếm 200k - 300k / Đơn với License Key) -->
+    <section id="affiliate" class="py-16 sm:py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-t border-slate-800 relative overflow-hidden">
+        <!-- Ambient Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[400px] pointer-events-none -z-10 opacity-20">
+            <div class="absolute top-0 right-1/4 w-[320px] h-[320px] rounded-full bg-amber-500 blur-[120px]"></div>
+            <div class="absolute bottom-0 left-1/4 w-[320px] h-[320px] rounded-full bg-emerald-500 blur-[120px]"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+                <span class="text-[11px] sm:text-xs font-extrabold text-amber-400 uppercase tracking-widest bg-amber-500/10 px-4 py-1.5 rounded-full border border-amber-500/30 inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-coins text-xs"></i> QL Affiliate Partner Program
+                </span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-3 leading-snug font-display">
+                    KIẾM 200.000đ – 300.000đ / MỖI ĐƠN HÀNG <br class="hidden sm:inline">
+                    <span class="bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">BẰNG CHÍNH LICENSE KEY CỦA BẠN!</span>
+                </h2>
+                <p class="text-slate-400 text-xs sm:text-sm md:text-base mt-2 max-w-2xl mx-auto leading-relaxed">
+                    Không cần đăng ký tài khoản rườm rà. Bất kỳ ai sở hữu Tool đều là Đối tác VIP – Chia sẻ link là nhận hoa hồng đối soát tự động hàng tuần!
+                </p>
+            </div>
+
+            <!-- 3-Tier Commission Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12">
+                <!-- Tier 1 -->
+                <div class="glossy-card rounded-2xl p-5 sm:p-6 border border-slate-800 text-left relative group hover:border-amber-500/40 transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 font-extrabold text-[11px] uppercase tracking-wider font-mono">Level 1 (1 - 4 Đơn)</span>
+                        <i class="fa-solid fa-seedling text-emerald-400 text-lg"></i>
+                    </div>
+                    <div class="text-2xl sm:text-3xl font-black text-white font-display">
+                        200.000đ <span class="text-xs text-slate-400 font-normal">/ đơn</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                        Nhận tiền ngay từ đơn đầu tiên giới thiệu bạn bè hoặc người theo dõi mua Tool.
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-emerald-400 font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-check text-xs"></i> Rút tiền nhanh không giới hạn
+                    </div>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="glossy-card rounded-2xl p-5 sm:p-6 border-2 border-amber-500/60 bg-amber-950/20 text-left relative group shadow-xl shadow-amber-500/10">
+                    <div class="absolute -top-3 right-4 bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow">
+                        Phổ biến nhất
+                    </div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-extrabold text-[11px] uppercase tracking-wider font-mono">Level 2 (5 - 19 Đơn)</span>
+                        <i class="fa-solid fa-medal text-amber-400 text-lg"></i>
+                    </div>
+                    <div class="text-2xl sm:text-3xl font-black text-amber-400 font-display">
+                        250.000đ <span class="text-xs text-slate-400 font-normal">/ đơn</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                        Tăng mức hoa hồng + <strong class="text-amber-300">Thưởng nóng 200.000đ</strong> khi cán mốc 5 đơn hàng.
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-amber-500/20 text-[11px] text-amber-400 font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-gift text-xs"></i> Thưởng nóng Milestone + Ưu tiên hỗ trợ
+                    </div>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="glossy-card rounded-2xl p-5 sm:p-6 border border-slate-800 text-left relative group hover:border-emerald-500/40 transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 font-extrabold text-[11px] uppercase tracking-wider font-mono">Level 3 (Từ 20 Đơn)</span>
+                        <i class="fa-solid fa-crown text-emerald-400 text-lg"></i>
+                    </div>
+                    <div class="text-2xl sm:text-3xl font-black text-emerald-400 font-display">
+                        300.000đ <span class="text-xs text-slate-400 font-normal">/ đơn</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                        Mức hoa hồng kịch khung + <strong class="text-emerald-300">Thưởng nóng 1.000.000đ</strong> khi cán mốc 20 đơn.
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-emerald-400 font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-trophy text-xs"></i> Vinh danh VIP Partner + Đối soát 24/7
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Quick Link Generator Box -->
+            <div class="glossy-card rounded-2xl sm:rounded-3xl border border-slate-700/80 p-5 sm:p-8 max-w-3xl mx-auto shadow-2xl">
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">
+                        <i class="fa-solid fa-link"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-white font-display">Tạo Link Giới Thiệu Của Bạn Ngay</h3>
+                </div>
+                <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                    Nhập mã <strong class="text-slate-200">License Key</strong> bạn đã nhận khi mua Tool để tạo đường link affiliate chia sẻ cho bạn bè:
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-2.5">
+                    <input type="text" id="aff-key-input" placeholder="Nhập License Key của bạn (VD: QL-8F29A)" class="flex-1 px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 text-sm focus:outline-none focus:border-amber-500 font-mono uppercase">
+                    <button type="button" onclick="generateAffLink()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-bold text-xs sm:text-sm uppercase tracking-wider transition-all transform active:scale-95 shadow-lg shadow-amber-500/20 shrink-0">
+                        Tạo Link Của Tôi
+                    </button>
+                </div>
+
+                <!-- Generated Link Box (Hidden by default) -->
+                <div id="aff-result-box" class="hidden mt-4 pt-4 border-t border-slate-800 space-y-2">
+                    <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider block text-left">
+                        🎉 Đường link giới thiệu chính thức của bạn:
+                    </span>
+                    <div class="flex items-center gap-2">
+                        <input type="text" id="aff-result-link" readonly class="w-full px-3.5 py-2.5 bg-slate-950 border border-amber-500/40 rounded-xl text-emerald-400 text-xs font-mono select-all">
+                        <button type="button" onclick="copyText(document.getElementById('aff-result-link').value, 'aff-link-copied')" class="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shrink-0 flex items-center gap-1.5">
+                            <i class="fa-regular fa-copy"></i>
+                            <span id="aff-link-copied">Sao chép</span>
+                        </button>
+                    </div>
+                    <p class="text-[11px] text-slate-400 text-left">
+                        💡 Hãy gửi link này cho bạn bè hoặc gắn vào bio TikTok/Facebook. Khi họ bấm vào mua Tool, hệ thống sẽ tự động ghi nhận hoa hồng 200k - 300k cho License Key của bạn!
+                    </p>
+                </div>
+
+                <!-- Action Button Join Affiliate Zalo Group -->
+                <div class="mt-6 pt-5 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+                    <div class="text-xs text-slate-400">
+                        <strong class="text-slate-200">Cần kho video raw & kịch bản mẫu?</strong> Tham gia ngay nhóm hỗ trợ Affiliate:
+                    </div>
+                    <a href="https://zalo.me/g/zkdskleydrhljrj3chwy" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs font-bold transition-all shrink-0">
+                        <i class="fa-solid fa-users text-emerald-400"></i> Vào Nhóm Zalo Nhận Tài Nguyên
+                    </a>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
@@ -950,15 +1099,16 @@
             const name = document.getElementById('cust-name').value.trim();
             const phone = document.getElementById('cust-phone').value.trim();
             const email = document.getElementById('cust-email').value.trim();
+            let refCode = (document.getElementById('cust-ref')?.value || localStorage.getItem('ql_aff_ref') || '').trim().toUpperCase();
 
             if (!phone || phone.length < 10) {
                 showToast("Vui lòng nhập đúng số điện thoại Zalo nhé!");
                 return;
             }
 
-            // Clean phone for transfer memo
+            // Clean phone & format transfer memo
             const cleanPhone = phone.replace(/[^0-9]/g, '');
-            const memo = `TOOL ${cleanPhone}`;
+            const memo = refCode ? `TOOL ${cleanPhone} ${refCode}` : `TOOL ${cleanPhone}`;
 
             // 1. Meta Pixel Conversion Tracking (Purchase & Lead)
             if (typeof fbq === 'function') {
@@ -980,9 +1130,11 @@
                 `📞 <b>Số điện thoại (Zalo):</b> ${phone}\n` +
                 `📧 <b>Email nhận link:</b> ${email}\n` +
                 `💰 <b>Gói:</b> Bản Quyền Vĩnh Viễn (1.099.000 VNĐ)\n` +
+                `🤝 <b>License Key Giới Thiệu (Ref):</b> <code>${refCode || 'Không có (Mua trực tiếp)'}</code>\n` +
+                `💵 <b>Hoa hồng Affiliate:</b> ${refCode ? '200.000đ - 300.000đ' : '0đ'}\n` +
                 `📝 <b>Cú pháp CK:</b> <code>${memo}</code>\n` +
                 `⏰ <b>Thời gian:</b> ${timeNow}\n\n` +
-                `⚡ <i>Khách vừa mở mã VietQR để thanh toán. Hãy kiểm tra biến động số dư và nhắn Zalo hỗ trợ khách kích hoạt nhé!</i>`;
+                `⚡ <i>Khách vừa mở mã VietQR để thanh toán. Hãy kiểm tra biến động số dư và tra cứu License Key trên Google Sheet để chuyển hoa hồng nhé!</i>`;
 
             fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
                 method: 'POST',
@@ -1010,8 +1162,49 @@
             modal.classList.remove('hidden');
             modal.classList.add('flex');
 
-            showToast("Đã tạo mã VietQR & gửi thông tin đơn hàng!");
+            showToast("Đã tạo mã VietQR & ghi nhận đơn hàng!");
         }
+
+        // Generate Affiliate Referral Link Tool
+        function generateAffLink() {
+            const keyInput = document.getElementById('aff-key-input');
+            const key = keyInput ? keyInput.value.trim().toUpperCase() : '';
+
+            if (!key || key.length < 3) {
+                showToast("Vui lòng nhập đúng License Key của bạn nhé!");
+                return;
+            }
+
+            const currentUrl = window.location.origin + window.location.pathname;
+            const affUrl = `${currentUrl}?ref=${encodeURIComponent(key)}`;
+
+            document.getElementById('aff-result-link').value = affUrl;
+            document.getElementById('aff-result-box').classList.remove('hidden');
+            showToast("Đã tạo link Affiliate thành công!");
+        }
+
+        // Automatic ?ref=... Detection and Storage (30-day Cookie/LocalStorage)
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let refParam = urlParams.get('ref');
+
+            if (refParam) {
+                refParam = refParam.trim().toUpperCase();
+                localStorage.setItem('ql_aff_ref', refParam);
+            }
+
+            const savedRef = localStorage.getItem('ql_aff_ref');
+            if (savedRef) {
+                const refInput = document.getElementById('cust-ref');
+                const refBadge = document.getElementById('ref-applied-badge');
+                if (refInput) {
+                    refInput.value = savedRef;
+                }
+                if (refBadge) {
+                    refBadge.classList.remove('hidden');
+                }
+            }
+        });
 
         // Track InitiateCheckout on all Order Buttons
         document.querySelectorAll('a[href="#order-form"]').forEach(el => {
@@ -1047,8 +1240,9 @@
         const recentBuyers = [
             "Anh Hùng (Hà Nội) vừa đăng ký Tool 1.099k",
             "Chị Mai (TP.HCM) vừa gia nhập Nhóm Zalo VIP",
-            "Anh Nam (Đà Nẵng) vừa thanh toán kích hoạt PC",
-            "Bạn Minh (Bắc Ninh) vừa nhận danh sách Sản Phẩm Win"
+            "Anh Nam (Đà Nẵng) vừa nhận 250k hoa hồng Affiliate",
+            "Bạn Minh (Bắc Ninh) vừa kích hoạt Tool qua mã QL-8F29A",
+            "Anh Tuấn (Hải Phòng) vừa nhận 300k thưởng đối tác VIP"
         ];
 
         let buyerIndex = 0;
