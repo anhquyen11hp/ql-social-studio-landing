@@ -1536,7 +1536,7 @@
                         phone: phone,
                         email: email,
                         amount: amount,
-                        refCode: inputRef,
+                        refCode: inputRef || savedAff || 'Không có',
                         orderType: isLicenseKey ? 'License Key VIP (-100k)' : (isBankAff ? 'Affiliate STK' : 'Mua trực tiếp'),
                         memo: memo
                     })
@@ -1702,8 +1702,10 @@
 
             if (refInput && savedKey) {
                 refInput.value = savedKey;
+                verifyLicenseKey(false);
+            } else {
+                updateFormPrice();
             }
-            updateFormPrice();
         });
 
         // Track InitiateCheckout on all Order Buttons
@@ -1753,20 +1755,22 @@
             }
         }, 12000);
 
-        // Auto Live-Reload Mechanism (Tự động cập nhật trang khi có thay đổi mã nguồn)
-        let lastModifiedHeader = null;
-        setInterval(async () => {
-            try {
-                const res = await fetch(window.location.href, { method: 'HEAD', cache: 'no-store' });
-                const currentHeader = res.headers.get('Last-Modified') || res.headers.get('ETag');
-                if (lastModifiedHeader && currentHeader && lastModifiedHeader !== currentHeader) {
-                    window.location.reload();
+        // Auto Live-Reload Mechanism (Chỉ kích hoạt ở môi trường phát triển cục bộ Localhost)
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            let lastModifiedHeader = null;
+            setInterval(async () => {
+                try {
+                    const res = await fetch(window.location.href, { method: 'HEAD', cache: 'no-store' });
+                    const currentHeader = res.headers.get('Last-Modified') || res.headers.get('ETag');
+                    if (lastModifiedHeader && currentHeader && lastModifiedHeader !== currentHeader) {
+                        window.location.reload();
+                    }
+                    lastModifiedHeader = currentHeader;
+                } catch (err) {
+                    // Ignore network glitches
                 }
-                lastModifiedHeader = currentHeader;
-            } catch (err) {
-                // Ignore network glitches
-            }
-        }, 1000);
+            }, 1000);
+        }
     </script>
 </body>
 </html>
