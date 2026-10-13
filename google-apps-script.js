@@ -260,7 +260,7 @@ function saveOrderToSheet(data) {
   const name = String(data.name || "").trim();
   const phone = String(data.phone || "").trim();
   const email = String(data.email || "").trim();
-  const amount = Number(data.amount || 1099000);
+  const amount = Number(data.amount || 1500000);
   const refCode = String(data.refCode || "").trim();
   const orderType = String(data.orderType || "Mua trực tiếp").trim();
   const memo = String(data.memo || "").trim();
